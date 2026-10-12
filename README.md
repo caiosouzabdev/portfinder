@@ -37,11 +37,22 @@ App: http://localhost:8080
 
 By default the app uses in-memory H2, seeds from `src/main/resources/catalog/projects/*.json`, and leaves Google OAuth disabled (`auth offline` in the header).
 
-## Google OAuth and PostgreSQL
+## Deploy (Render from GitHub)
+
+v1 launch is **catalog-only**: PostgreSQL persistence, JSON seed on boot, Google OAuth left **off** (`PORTFINDER_OAUTH_ENABLED=false`). Votes and in-app submit stay gated until auth is enabled later.
+
+1. Push `main` to GitHub (this repo).
+2. In [Render](https://render.com), **New → Blueprint**, connect `caiosouzabdev/portfinder`, and apply [`render.yaml`](render.yaml).
+3. Wait for the first Docker build. The free web service + free Postgres are created together.
+4. Open the service URL (Render also sets `RENDER_EXTERNAL_URL` for sitemap links).
+
+Files involved: [`Dockerfile`](Dockerfile), [`render.yaml`](render.yaml). Env details: [docs/ENV.md](docs/ENV.md).
+
+## Google OAuth and PostgreSQL (local / later)
 
 See [docs/ENV.md](docs/ENV.md) for variable names.
 
-Example:
+Example with auth enabled:
 
 ```bash
 export PORTFINDER_OAUTH_ENABLED=true
@@ -55,7 +66,7 @@ export DATABASE_DRIVER=org.postgresql.Driver
 ./mvnw spring-boot:run
 ```
 
-Create a Google OAuth client with redirect URI `http://localhost:8080/login/oauth2/code/google`.
+Create a Google OAuth client with redirect URI `http://localhost:8080/login/oauth2/code/google` (and the production callback once auth is turned on).
 
 Admin emails listed in `PORTFINDER_ADMIN_EMAILS` can open `/moderation` to approve or reject submissions.
 

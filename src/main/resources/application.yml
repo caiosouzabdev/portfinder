@@ -31,14 +31,14 @@ spring:
               - email
 
 server:
-  port: 8080
+  port: ${PORT:8080}
 
 portfinder:
   catalog:
     location-pattern: classpath:catalog/projects/*.json
   github:
     repo-url: https://github.com/caiosouzabdev/portfinder
-  base-url: ${PORTFINDER_BASE_URL:http://localhost:8080}
+  base-url: ${PORTFINDER_BASE_URL:${RENDER_EXTERNAL_URL:http://localhost:8080}}
   moderation:
     admin-emails: ${PORTFINDER_ADMIN_EMAILS:}
   security:
