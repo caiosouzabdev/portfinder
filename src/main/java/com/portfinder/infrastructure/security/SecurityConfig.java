@@ -34,7 +34,9 @@ public class SecurityConfig {
 
 		if (oauthEnabled) {
 			http.oauth2Login(oauth -> oauth
-					.userInfoEndpoint(userInfo -> userInfo.userService(googleUserService))
+					.userInfoEndpoint(userInfo -> userInfo
+							.userService(googleUserService)
+							.oidcUserService(googleUserService.oidcUserService()))
 					.defaultSuccessUrl("/", true));
 		}
 		else {

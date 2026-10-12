@@ -1,11 +1,11 @@
 package com.portfinder.web;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.portfinder.infrastructure.security.AppUser;
+import com.portfinder.infrastructure.security.SecurityUtils;
 
 @ControllerAdvice
 public class GlobalModelAdvice {
@@ -17,8 +17,8 @@ public class GlobalModelAdvice {
 	}
 
 	@ModelAttribute("currentUser")
-	public AppUser currentUser(@AuthenticationPrincipal AppUser user) {
-		return user;
+	public AppUser currentUser() {
+		return SecurityUtils.currentUser().orElse(null);
 	}
 
 	@ModelAttribute("oauthEnabled")
