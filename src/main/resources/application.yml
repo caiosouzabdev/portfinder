@@ -25,6 +25,7 @@ spring:
           google:
             client-id: ${GOOGLE_CLIENT_ID:disabled}
             client-secret: ${GOOGLE_CLIENT_SECRET:disabled}
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
             scope:
               - openid
               - profile
@@ -32,6 +33,8 @@ spring:
 
 server:
   port: ${PORT:8080}
+  # Honor X-Forwarded-* from Render so OAuth redirect_uri uses https + public host
+  forward-headers-strategy: framework
 
 portfinder:
   catalog:

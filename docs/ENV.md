@@ -15,6 +15,8 @@ Used when running PortFinder with persistence and (later) Google sign-in.
 | `PORTFINDER_ADMIN_EMAILS` | Moderation | Comma-separated emails allowed to moderate submissions (default: `portsfinder@gmail.com`) |
 | `PORTFINDER_BASE_URL` | Optional | Public site URL for sitemap links (falls back to `RENDER_EXTERNAL_URL` on Render) |
 
+Google Cloud Console must list redirect URI `https://<public-host>/login/oauth2/code/google` (plus `http://localhost:8080/login/oauth2/code/google` for local). Render terminates TLS; the app uses `server.forward-headers-strategy=framework` so the OAuth callback is built with `https` and the public host.
+
 ## Local defaults
 
 Without these variables the app uses an in-memory H2 database and leaves Google OAuth disabled until credentials are set. See the README for local and Render deploy steps.

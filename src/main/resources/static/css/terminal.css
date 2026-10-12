@@ -1,18 +1,19 @@
 :root {
-  --bg: #070b08;
-  --bg-elevated: #0d1510;
-  --panel: #101a14;
-  --border: #1c2e24;
-  --text: #c8f0d4;
-  --muted: #6f9a7d;
-  --green: #3dff9a;
-  --green-dim: #1fa85a;
-  --amber: #d6c15a;
+  --bg: #010602;
+  --bg-elevated: rgba(4, 18, 8, 0.92);
+  --panel: rgba(2, 12, 5, 0.82);
+  --border: #0d3b18;
+  --text: #b8ffc4;
+  --muted: #3f8f52;
+  --green: #00ff41;
+  --green-dim: #008f11;
+  --amber: #c8b44a;
   --danger: #ff6b6b;
   --font-sans: "Sora", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
   --radius: 10px;
-  --shadow: 0 0 0 1px rgba(61, 255, 154, 0.06), 0 24px 60px rgba(0, 0, 0, 0.45);
+  --shadow: 0 0 0 1px rgba(0, 255, 65, 0.08), 0 24px 60px rgba(0, 0, 0, 0.55);
+  --glass: blur(8px);
 }
 
 * { box-sizing: border-box; }
@@ -25,11 +26,22 @@ html, body {
 body {
   font-family: var(--font-sans);
   color: var(--text);
-  background:
-    radial-gradient(1200px 600px at 10% -10%, rgba(61, 255, 154, 0.08), transparent 55%),
-    radial-gradient(900px 500px at 100% 0%, rgba(31, 168, 90, 0.07), transparent 50%),
-    linear-gradient(180deg, #050806 0%, var(--bg) 40%, #050907 100%);
+  background: var(--bg);
   line-height: 1.5;
+}
+
+.matrix-rain {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .matrix-rain { display: none; }
 }
 
 a { color: var(--green); text-decoration: none; }
@@ -54,6 +66,18 @@ a:hover { text-decoration: underline; }
 .shell,
 .site-footer { position: relative; z-index: 1; }
 
+.filters,
+.featured-card,
+.feed-card,
+.category-card,
+.detail,
+.submit-form,
+.mod-card,
+.modal {
+  backdrop-filter: var(--glass);
+  -webkit-backdrop-filter: var(--glass);
+}
+
 .site-header {
   display: flex;
   align-items: center;
@@ -76,7 +100,7 @@ a:hover { text-decoration: underline; }
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--green);
-  text-shadow: 0 0 18px rgba(61, 255, 154, 0.25);
+  text-shadow: 0 0 18px rgba(0, 255, 65, 0.35);
 }
 
 .nav {
@@ -121,7 +145,7 @@ a:hover { text-decoration: underline; }
   letter-spacing: -0.03em;
   color: var(--green);
   margin: 0.35rem 0 0.75rem;
-  text-shadow: 0 0 28px rgba(61, 255, 154, 0.22);
+  text-shadow: 0 0 28px rgba(0, 255, 65, 0.35), 0 0 60px rgba(0, 255, 65, 0.12);
 }
 
 .hero h1 {
@@ -157,7 +181,7 @@ a:hover { text-decoration: underline; }
 .banner.success {
   border-color: var(--green-dim);
   color: var(--green);
-  background: rgba(61, 255, 154, 0.08);
+  background: rgba(0, 255, 65, 0.08);
 }
 
 .prompt {
@@ -222,7 +246,7 @@ a:hover { text-decoration: underline; }
   justify-content: center;
   align-self: end;
   border: 1px solid var(--green-dim);
-  background: rgba(61, 255, 154, 0.1);
+  background: rgba(0, 255, 65, 0.1);
   color: var(--green);
   font-family: var(--font-mono);
   font-size: 0.85rem;
@@ -233,7 +257,7 @@ a:hover { text-decoration: underline; }
 }
 
 .btn:hover {
-  background: rgba(61, 255, 154, 0.18);
+  background: rgba(0, 255, 65, 0.18);
   text-decoration: none;
 }
 
@@ -304,7 +328,7 @@ a:hover { text-decoration: underline; }
   align-items: center;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  background: linear-gradient(180deg, rgba(16, 26, 20, 0.95), rgba(10, 16, 12, 0.95));
+  background: linear-gradient(180deg, rgba(2, 14, 6, 0.84), rgba(1, 8, 3, 0.88));
   padding: 0.85rem 1rem;
   transition: border-color 0.2s ease, transform 0.2s ease;
 }
@@ -446,7 +470,7 @@ a:hover { text-decoration: underline; }
   border-radius: 999px;
   border: 1px solid var(--border);
   color: var(--green);
-  background: rgba(61, 255, 154, 0.06);
+  background: rgba(0, 255, 65, 0.06);
   text-decoration: none;
 }
 
@@ -482,7 +506,7 @@ a:hover { text-decoration: underline; }
 .vote-btn.voted {
   color: var(--green);
   border-color: var(--green-dim);
-  background: rgba(61, 255, 154, 0.08);
+  background: rgba(0, 255, 65, 0.08);
 }
 
 .vote-btn.large {
@@ -723,10 +747,11 @@ code {
   color: var(--text);
   padding: 1.25rem;
   max-width: 420px;
+  z-index: 20;
 }
 
 .modal::backdrop {
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.72);
 }
 
 .modal.lightbox {

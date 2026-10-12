@@ -66,7 +66,12 @@ export DATABASE_DRIVER=org.postgresql.Driver
 ./mvnw spring-boot:run
 ```
 
-Create a Google OAuth client with redirect URI `http://localhost:8080/login/oauth2/code/google` (and the production callback once auth is turned on).
+Create a Google OAuth **Web application** client and add these **Authorized redirect URIs** (exact match, including `https`):
+
+- Local: `http://localhost:8080/login/oauth2/code/google`
+- Production: `https://<your-render-host>/login/oauth2/code/google`
+
+Also add the same hosts under **Authorized JavaScript origins** (`http://localhost:8080` and `https://<your-render-host>`). A `redirect_uri_mismatch` error almost always means the production URI is missing or uses `http` instead of `https`.
 
 Admin emails listed in `PORTFINDER_ADMIN_EMAILS` can open `/moderation` to approve or reject submissions.
 
