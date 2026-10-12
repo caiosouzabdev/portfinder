@@ -12,7 +12,7 @@ Used when running PortFinder with persistence and (later) Google sign-in.
 | `PORTFINDER_OAUTH_ENABLED` | Auth | Set `true` to enable Google sign-in (v1 launch keeps this `false`) |
 | `GOOGLE_CLIENT_ID` | Auth | Google OAuth 2.0 client ID |
 | `GOOGLE_CLIENT_SECRET` | Auth | Google OAuth 2.0 client secret |
-| `PORTFINDER_ADMIN_EMAILS` | Moderation | Comma-separated emails allowed to moderate submissions |
+| `PORTFINDER_ADMIN_EMAILS` | Moderation | Comma-separated emails allowed to moderate submissions (default: `portsfinder@gmail.com`) |
 | `PORTFINDER_BASE_URL` | Optional | Public site URL for sitemap links (falls back to `RENDER_EXTERNAL_URL` on Render) |
 
 ## Local defaults

@@ -58,7 +58,7 @@ Example with auth enabled:
 export PORTFINDER_OAUTH_ENABLED=true
 export GOOGLE_CLIENT_ID=your-client-id
 export GOOGLE_CLIENT_SECRET=your-client-secret
-export PORTFINDER_ADMIN_EMAILS=you@example.com
+export PORTFINDER_ADMIN_EMAILS=portsfinder@gmail.com
 export DATABASE_URL=jdbc:postgresql://localhost:5432/portfinder
 export DATABASE_USERNAME=portfinder
 export DATABASE_PASSWORD=secret

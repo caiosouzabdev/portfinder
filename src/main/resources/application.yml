@@ -38,7 +38,7 @@ portfinder:
     location-pattern: classpath:catalog/projects/*.json
   base-url: ${PORTFINDER_BASE_URL:${RENDER_EXTERNAL_URL:http://localhost:8080}}
   moderation:
-    admin-emails: ${PORTFINDER_ADMIN_EMAILS:}
+    admin-emails: ${PORTFINDER_ADMIN_EMAILS:portsfinder@gmail.com}
   security:
     oauth-enabled: ${PORTFINDER_OAUTH_ENABLED:false}
   rate-limit:
