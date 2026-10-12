@@ -21,13 +21,13 @@ public class ProjectEntity {
 	@Column(nullable = false, length = 500)
 	private String summary;
 
-	@Column(nullable = false, columnDefinition = "CLOB")
+	@Column(nullable = false, columnDefinition = "TEXT")
 	private String description;
 
 	@Column(name = "original_platform", nullable = false, length = 100)
 	private String originalPlatform;
 
-	@Column(name = "target_platforms_json", nullable = false, columnDefinition = "CLOB")
+	@Column(name = "target_platforms_json", nullable = false, columnDefinition = "TEXT")
 	private String targetPlatformsJson;
 
 	@Column(nullable = false, length = 64)
@@ -45,10 +45,10 @@ public class ProjectEntity {
 	@Column(name = "image_url", length = 1000)
 	private String imageUrl;
 
-	@Column(name = "screenshot_urls_json", nullable = false, columnDefinition = "CLOB")
+	@Column(name = "screenshot_urls_json", nullable = false, columnDefinition = "TEXT")
 	private String screenshotUrlsJson;
 
-	@Column(name = "tags_json", nullable = false, columnDefinition = "CLOB")
+	@Column(name = "tags_json", nullable = false, columnDefinition = "TEXT")
 	private String tagsJson;
 
 	@Column(name = "updated_at", nullable = false)
