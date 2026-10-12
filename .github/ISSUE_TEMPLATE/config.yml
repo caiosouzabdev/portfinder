@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Suggest a catalog project
+    url: https://portfinder.onrender.com/submit
+    about: Sign in on the live site and use in-app Submit. Do not open GitHub issues for catalog entries.
+  - name: Maintainer seed / app changes
+    url: https://github.com/caiosouzabdev/portfinder/blob/main/CONTRIBUTING.md
+    about: Private-repo maintainers — follow CONTRIBUTING.md for seed JSON and code changes.

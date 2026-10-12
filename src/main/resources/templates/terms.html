@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(~{::title}, ~{::main}, ~{})}">
+<head>
+  <title>Terms — portfinder</title>
+</head>
+<body>
+<main class="shell">
+  <article class="legal">
+    <h1>Terms</h1>
+    <p class="lede">Rules for using portfinder as a discovery catalog.</p>
+
+    <h2>What this site is</h2>
+    <p>portfinder indexes metadata and outbound links to game decompilation and recompilation projects. It is a discovery catalog, not a ROM or game-file host.</p>
+
+    <h2>Allowed content</h2>
+    <ul>
+      <li>Project names, summaries, status, platforms, tags, and links to official repos or homepages</li>
+      <li>Optional preview images hosted by the project or other legitimate public sources</li>
+    </ul>
+
+    <h2>Prohibited</h2>
+    <ul>
+      <li>Uploading or linking to ROMs, ISOs, dumps, or other copyrighted game assets for download</li>
+      <li>Misleading submissions, spam, or abuse of voting and submit flows</li>
+    </ul>
+
+    <h2>Accounts and moderation</h2>
+    <p>Voting and submitting require Google sign-in. Moderators may approve, reject, or remove submissions that violate these terms or applicable law. We may rate-limit votes and submissions to protect the service.</p>
+
+    <h2>Third-party projects</h2>
+    <p>Linked projects keep their own licenses and policies. portfinder does not claim ownership of those projects and is not responsible for their content or builds.</p>
+
+    <h2>Availability</h2>
+    <p>The service is provided as-is. Free-tier hosting may sleep or change without notice.</p>
+  </article>
+</main>
+</body>
+</html>

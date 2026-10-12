@@ -18,9 +18,13 @@ spring:
             client-id: test-client
             client-secret: test-secret
 
+  thymeleaf:
+    cache: false
+
 portfinder:
   catalog:
     location-pattern: classpath:catalog/projects/*.json
+  base-url: http://localhost:8080
   security:
     oauth-enabled: false
   moderation:

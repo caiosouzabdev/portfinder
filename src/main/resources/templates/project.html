@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-      th:replace="~{layout :: layout(~{::title}, ~{::main})}">
+      th:replace="~{layout :: layout(~{::title}, ~{::main}, ~{::extras})}">
 <head>
   <title th:text="|${project.name} — portfinder|">project — portfinder</title>
-  <meta property="og:title" th:content="${project.name}">
-  <meta property="og:description" th:content="${project.summary}">
-  <meta th:if="${project.hasImage()}" property="og:image" th:content="${project.imageUrl.get()}">
+  <th:block th:fragment="extras">
+    <meta property="og:title" th:content="${project.name}">
+    <meta property="og:description" th:content="${project.summary}">
+    <meta th:if="${project.hasImage()}" property="og:image" th:content="${project.imageUrl.get()}">
+    <meta name="description" th:content="${project.summary}">
+  </th:block>
 </head>
 <body>
 <main class="shell">

@@ -26,7 +26,16 @@ public class SecurityConfig {
 	@Bean
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests(auth -> auth
-				.requestMatchers("/css/**", "/js/**", "/error", "/sitemap.xml", "/favicon.ico").permitAll()
+				.requestMatchers(
+						"/css/**",
+						"/js/**",
+						"/error",
+						"/sitemap.xml",
+						"/robots.txt",
+						"/health",
+						"/favicon.ico",
+						"/privacy",
+						"/terms").permitAll()
 				.requestMatchers("/", "/projects/**", "/categories/**").permitAll()
 				.requestMatchers("/submit", "/moderation", "/moderation/**").hasRole("USER")
 				.requestMatchers(HttpMethod.POST, "/projects/*/votes").hasRole("USER")

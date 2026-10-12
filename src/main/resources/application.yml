@@ -2,7 +2,7 @@ spring:
   application:
     name: portfinder
   thymeleaf:
-    cache: false
+    cache: ${THYMELEAF_CACHE:true}
   datasource:
     url: ${DATABASE_URL:jdbc:h2:mem:portfinder;DB_CLOSE_DELAY=-1;MODE=PostgreSQL}
     username: ${DATABASE_USERNAME:sa}

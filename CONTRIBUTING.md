@@ -4,11 +4,11 @@ portfinder is a **discovery catalog** for decomp and recomp ports. The source re
 
 ## Submit a project (public)
 
-1. Sign in on the live site.
-2. Open **submit** in the nav.
+1. Sign in on the live site: https://portfinder.onrender.com/
+2. Open **submit** in the nav (or go to `/submit`).
 3. Fill the form. Entries stay pending until a moderator publishes them.
 
-Do not open GitHub issues or PRs for catalog suggestions — submissions are in-app only.
+Do **not** open GitHub issues or PRs for catalog suggestions — there is no `suggest-project` issue template. Submissions are in-app only. Old `/contribute` URLs redirect to `/submit`.
 
 ## Seed catalog (maintainers)
 

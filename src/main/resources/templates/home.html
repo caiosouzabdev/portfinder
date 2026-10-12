@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-      th:replace="~{layout :: layout(~{::title}, ~{::main})}">
+      th:replace="~{layout :: layout(~{::title}, ~{::main}, ~{::extras})}">
 <head>
   <title>portfinder — decomp &amp; recomp ports</title>
+  <th:block th:fragment="extras">
+    <meta property="og:title" content="portfinder — decomp &amp; recomp ports">
+    <meta property="og:description" content="Community index of game decompilation and recompilation ports — browse, vote, and submit projects.">
+  </th:block>
 </head>
 <body>
 <main class="shell">

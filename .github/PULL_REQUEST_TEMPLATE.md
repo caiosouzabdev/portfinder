@@ -1,7 +1,7 @@
 ## Summary
 Briefly describe the change (maintainer seed/catalog or app code).
 
-Public catalog suggestions use in-app **Submit**, not GitHub PRs.
+Public catalog suggestions use in-app **Submit** (https://portfinder.onrender.com/submit), not GitHub issues or PRs.
 
 ## Checklist (seed JSON, if applicable)
 - [ ] Added or updated `src/main/resources/catalog/projects/{id}.json`

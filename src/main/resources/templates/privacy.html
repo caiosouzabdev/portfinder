@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(~{::title}, ~{::main}, ~{})}">
+<head>
+  <title>Privacy — portfinder</title>
+</head>
+<body>
+<main class="shell">
+  <article class="legal">
+    <h1>Privacy</h1>
+    <p class="lede">How portfinder handles account and catalog data.</p>
+
+    <h2>Sign-in</h2>
+    <p>When you sign in with Google, we receive your Google account subject id, email address, display name, and profile picture URL. We store these in our database so we can keep you signed in, show your name in the UI, and attribute submissions.</p>
+
+    <h2>What we store</h2>
+    <ul>
+      <li>Account profile fields from Google (as above)</li>
+      <li>Votes you cast on catalog projects</li>
+      <li>Projects you submit for moderation, including the metadata you enter</li>
+      <li>Session cookies required for authentication and CSRF protection</li>
+    </ul>
+
+    <h2>What we do not do</h2>
+    <ul>
+      <li>We do not host ROMs, ISOs, or copyrighted game assets</li>
+      <li>We do not sell personal data</li>
+      <li>We do not send marketing email</li>
+    </ul>
+
+    <h2>Operators</h2>
+    <p>The service runs on Render with a PostgreSQL database. Google processes sign-in according to Google’s policies. Moderators listed by admin email may review pending submissions.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy can be directed to the site operator via the admin email configured for moderation.</p>
+  </article>
+</main>
+</body>
+</html>

@@ -34,6 +34,11 @@ public class SubmitController {
 		this.rateLimitService = rateLimitService;
 	}
 
+	@GetMapping("/contribute")
+	public String legacyContributeRedirect() {
+		return "redirect:/submit";
+	}
+
 	@GetMapping("/submit")
 	public String form(Model model) {
 		model.addAttribute("categories", CategoryCatalog.all());

@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(title, content)">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(title, content, head)">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta th:if="${_csrf != null}" name="_csrf" th:content="${_csrf.token}">
   <meta th:if="${_csrf != null}" name="_csrf_header" th:content="${_csrf.headerName}">
+  <meta name="description" content="Community index of game decompilation and recompilation ports — browse, vote, and submit projects.">
+  <meta property="og:site_name" content="portfinder">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
   <title th:replace="${title}">portfinder</title>
+  <th:block th:replace="${head} ?: ~{}"></th:block>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
@@ -40,6 +45,11 @@
   </main>
   <footer class="site-footer">
     <p>Metadata and links only. Never hosts ROMs or copyrighted game assets.</p>
+    <p class="footer-links">
+      <a th:href="@{/privacy}">Privacy</a>
+      <span aria-hidden="true">·</span>
+      <a th:href="@{/terms}">Terms</a>
+    </p>
   </footer>
   <dialog id="signin-dialog" class="modal">
     <h2>Sign in to vote</h2>
