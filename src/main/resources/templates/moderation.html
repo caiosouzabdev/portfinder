@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(~{::title}, ~{::main})}">
+<head>
+  <title>moderation — portfinder</title>
+</head>
+<body>
+<main class="shell">
+  <section class="hero">
+    <h1>Moderation</h1>
+    <p class="lede">Approve or reject pending community submissions.</p>
+  </section>
+  <ul class="mod-list" th:if="${!pending.isEmpty()}">
+    <li th:each="project : ${pending}" class="mod-card">
+      <div>
+        <strong th:text="${project.name}">Name</strong>
+        <p th:text="${project.summary}">Summary</p>
+        <p class="meta">
+          <span th:text="${project.id.value()}">id</span>
+          · <span th:text="${project.category}">n64</span>
+          · by <span th:text="${project.submittedByDisplayName.orElse('unknown')}">user</span>
+        </p>
+      </div>
+      <div class="actions">
+        <form th:action="@{/moderation/{id}(id=${project.id.value()})}" method="post">
+          <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+          <input type="hidden" name="decision" value="approve">
+          <button class="btn" type="submit">approve</button>
+        </form>
+        <form th:action="@{/moderation/{id}(id=${project.id.value()})}" method="post">
+          <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+          <input type="hidden" name="decision" value="reject">
+          <button class="btn ghost" type="submit">reject</button>
+        </form>
+      </div>
+    </li>
+  </ul>
+  <p class="empty" th:if="${pending.isEmpty()}">Queue is clear.</p>
+</main>
+</body>
+</html>

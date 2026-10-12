@@ -8,22 +8,27 @@
 <main class="shell">
   <section class="hero">
     <h1>contribute</h1>
-    <p class="lede">The catalog is git-backed. Suggest projects with Issues; add or edit entries with Pull Requests.</p>
+    <p class="lede">Submit projects in-app for review, or help maintain the seed catalog via GitHub.</p>
   </section>
 
   <ol class="steps">
     <li>
-      <h2>1. Suggest via Issue</h2>
-      <p>Open a structured issue if you found a decomp/recomp port that should be listed.</p>
-      <a class="btn" th:href="${suggestIssueUrl}" rel="noopener noreferrer" target="_blank">open suggest-project issue</a>
+      <h2>1. Submit in-app</h2>
+      <p>Sign in and use the submit form. Entries are published after moderator review.</p>
+      <a class="btn" th:href="@{/submit}">open submit form</a>
     </li>
     <li>
-      <h2>2. Add via Pull Request</h2>
-      <p>Create <code>src/main/resources/catalog/projects/{id}.json</code> matching the schema in CONTRIBUTING.md, then open a PR.</p>
+      <h2>2. Suggest via Issue</h2>
+      <p>Open a structured issue if you prefer GitHub for the initial proposal.</p>
+      <a class="btn ghost" th:href="${suggestIssueUrl}" rel="noopener noreferrer" target="_blank">open suggest-project issue</a>
+    </li>
+    <li>
+      <h2>3. Seed catalog Pull Request</h2>
+      <p>Maintainers can still PR JSON under <code>src/main/resources/catalog/projects/{id}.json</code> for seed data.</p>
       <a class="btn ghost" th:href="${newPrUrl}" rel="noopener noreferrer" target="_blank">open compare / PR</a>
     </li>
     <li>
-      <h2>3. Rules</h2>
+      <h2>4. Rules</h2>
       <ul class="rules">
         <li>Metadata and outbound links only — never ROMs, ISOs, or game assets.</li>
         <li>Ids are lowercase kebab-case and unique.</li>

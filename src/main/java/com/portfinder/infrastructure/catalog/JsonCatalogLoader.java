@@ -8,32 +8,29 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.stereotype.Component;
 
-import tools.jackson.databind.ObjectMapper;
-import com.portfinder.application.port.ProjectCatalog;
 import com.portfinder.domain.Project;
 import com.portfinder.domain.ProjectId;
 
-import jakarta.annotation.PostConstruct;
+import tools.jackson.databind.ObjectMapper;
 
+/**
+ * Loads seed projects from classpath JSON. Not the runtime catalog source of truth.
+ */
 @Component
-public class JsonProjectCatalog implements ProjectCatalog {
+public class JsonCatalogLoader {
 
 	private final ResourcePatternResolver resources;
 	private final ObjectMapper objectMapper;
 	private final ProjectDocumentMapper mapper = new ProjectDocumentMapper();
 	private final String locationPattern;
 
-	private Map<ProjectId, Project> byId = Map.of();
-	private List<Project> all = List.of();
-
-	public JsonProjectCatalog(
+	public JsonCatalogLoader(
 			ResourcePatternResolver resources,
 			ObjectMapper objectMapper,
 			@Value("${portfinder.catalog.location-pattern:classpath:catalog/projects/*.json}") String locationPattern) {
@@ -42,8 +39,7 @@ public class JsonProjectCatalog implements ProjectCatalog {
 		this.locationPattern = locationPattern;
 	}
 
-	@PostConstruct
-	void load() {
+	public List<Project> loadAll() {
 		try {
 			Resource[] files = resources.getResources(locationPattern);
 			Map<ProjectId, Project> loaded = new HashMap<>();
@@ -57,13 +53,28 @@ public class JsonProjectCatalog implements ProjectCatalog {
 					throw new IllegalStateException("Duplicate project id: " + project.id().value());
 				}
 			}
-			this.byId = Map.copyOf(loaded);
-			this.all = loaded.values().stream()
+			return loaded.values().stream()
 					.sorted(Comparator.comparing(p -> p.id().value()))
 					.toList();
 		}
 		catch (IOException ex) {
 			throw new UncheckedIOException("Failed to scan catalog at " + locationPattern, ex);
+		}
+	}
+
+	public List<Project> loadFromPattern(String pattern) {
+		try {
+			Resource[] files = resources.getResources(pattern);
+			List<Project> loaded = new ArrayList<>();
+			for (Resource file : files) {
+				if (file.isReadable()) {
+					loaded.add(readProject(file));
+				}
+			}
+			return List.copyOf(loaded);
+		}
+		catch (IOException ex) {
+			throw new UncheckedIOException("Failed to scan catalog at " + pattern, ex);
 		}
 	}
 
@@ -87,24 +98,5 @@ public class JsonProjectCatalog implements ProjectCatalog {
 		catch (IOException ex) {
 			return file.getDescription();
 		}
-	}
-
-	@Override
-	public List<Project> findAll() {
-		return all;
-	}
-
-	@Override
-	public Optional<Project> findById(ProjectId id) {
-		return Optional.ofNullable(byId.get(id));
-	}
-
-	/** Visible for tests that construct the catalog without Spring lifecycle. */
-	void reloadForTests() {
-		load();
-	}
-
-	List<Project> snapshot() {
-		return new ArrayList<>(all);
 	}
 }

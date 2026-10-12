@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(~{::title}, ~{::main})}">
+<head>
+  <title th:text="|${category.label()} — portfinder|">category — portfinder</title>
+</head>
+<body>
+<main class="shell">
+  <p class="prompt"><a th:href="@{/categories}">← categories</a></p>
+  <section class="hero">
+    <h1 th:text="${category.label()}">Nintendo 64</h1>
+    <p class="lede" th:text="${category.description()}">Description</p>
+    <p class="meta"><span th:text="${resultCount}">0</span> project<span th:if="${resultCount != 1}">s</span></p>
+  </section>
+
+  <form class="filters compact-filters" method="get" th:action="@{/categories/{slug}(slug=${category.slug()})}">
+    <label class="field grow">
+      <span>search</span>
+      <input type="search" name="q" th:value="${criteria.query}" placeholder="filter in category…" autocomplete="off">
+    </label>
+    <label class="field">
+      <span>sort</span>
+      <select name="sort">
+        <option value="VOTES_DESC" th:selected="${criteria.sort.name() == 'VOTES_DESC'}">votes</option>
+        <option value="UPDATED_DESC" th:selected="${criteria.sort.name() == 'UPDATED_DESC'}">updated</option>
+        <option value="NAME_ASC" th:selected="${criteria.sort.name() == 'NAME_ASC'}">name</option>
+      </select>
+    </label>
+    <button type="submit" class="btn">run</button>
+  </form>
+
+  <ol class="feed" th:if="${!projects.isEmpty()}">
+    <li th:each="project, iter : ${projects}" class="feed-card">
+      <span class="rank" th:text="|#${rankOffset + iter.count}|">#1</span>
+      <div class="feed-main">
+        <a class="thumb-link" th:href="@{/projects/{id}(id=${project.id.value()})}">
+          <div class="thumb" th:if="${project.hasImage()}">
+            <img th:src="${project.imageUrl.get()}" th:alt="|Preview for ${project.name}|" loading="lazy">
+          </div>
+          <div class="thumb placeholder" th:unless="${project.hasImage()}" th:text="${project.originalPlatform.label()}">N64</div>
+        </a>
+        <div class="feed-body">
+          <div class="project-head">
+            <a class="title-link" th:href="@{/projects/{id}(id=${project.id.value()})}">
+              <strong th:text="${project.name}">Name</strong>
+            </a>
+            <span class="status" th:classappend="| status-${project.status.name().toLowerCase()}|" th:text="${project.status}">ACTIVE</span>
+          </div>
+          <p class="summary" th:text="${project.summary}">Summary</p>
+          <div class="chips">
+            <span class="chip tag" th:each="tag : ${project.tags}" th:text="${tag}">tag</span>
+            <span class="chip trending" th:if="${project.isTrending(today)}">trending</span>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="vote-btn"
+              th:classappend="${votedIds.contains(project.id.value())} ? ' voted'"
+              th:attr="data-vote=${project.id.value()},data-signed-in=${signedIn}">
+        <span class="vote-arrow" aria-hidden="true">▲</span>
+        <span data-vote-count th:text="${project.voteCount}">0</span>
+      </button>
+    </li>
+  </ol>
+  <p class="empty" th:if="${projects.isEmpty()}">No projects in this category yet. <a th:href="@{/submit}">Submit one</a>.</p>
+
+  <div class="pager" th:if="${paged.hasNext() or paged.hasPrevious()}">
+    <a class="btn ghost" th:if="${paged.hasPrevious()}"
+       th:href="@{/categories/{slug}(slug=${category.slug()},q=${criteria.query},sort=${criteria.sort},page=${paged.previousPage()})}">newer</a>
+    <a class="btn" th:if="${paged.hasNext()}"
+       th:href="@{/categories/{slug}(slug=${category.slug()},q=${criteria.query},sort=${criteria.sort},page=${paged.nextPage()})}">load more</a>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(~{::title}, ~{::main})}">
+<head>
+  <title>categories — portfinder</title>
+</head>
+<body>
+<main class="shell">
+  <section class="hero">
+    <h1>Categories</h1>
+    <p class="lede">Browse decomp and recomp ports by original platform family.</p>
+  </section>
+  <div class="category-grid">
+    <a class="category-card" th:each="entry : ${categories}" th:href="@{/categories/{slug}(slug=${entry.category.slug()})}">
+      <h2 th:text="${entry.category.label()}">Nintendo 64</h2>
+      <p th:text="${entry.category.description()}">Description</p>
+      <span class="count" th:text="|${entry.count()} projects|">0 projects</span>
+    </a>
+  </div>
+</main>
+</body>
+</html>

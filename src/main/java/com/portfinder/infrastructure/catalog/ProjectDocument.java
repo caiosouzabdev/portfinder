@@ -9,11 +9,17 @@ record ProjectDocument(
 		String id,
 		String name,
 		String summary,
+		String description,
 		String originalPlatform,
 		List<String> targetPlatforms,
+		String category,
 		String status,
 		String repoUrl,
 		String homepageUrl,
+		String imageUrl,
+		List<String> screenshotUrls,
 		List<String> tags,
+		Boolean featured,
+		String trendingUntil,
 		String updatedAt) {
 }

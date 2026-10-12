@@ -20,6 +20,8 @@ class ProjectTest {
 		assertEquals(List.of("recomp", "n64"), project.tags());
 		assertTrue(project.hasTag("RECOMP"));
 		assertFalse(project.hasTag("missing"));
+		assertEquals("n64", project.category());
+		assertEquals(project.summary(), project.description());
 	}
 
 	@Test
@@ -39,6 +41,11 @@ class ProjectTest {
 		assertThrows(IllegalArgumentException.class, () -> sample().name("  ").build());
 	}
 
+	@Test
+	void rejectsUnknownCategory() {
+		assertThrows(IllegalArgumentException.class, () -> sample().category("nope").build());
+	}
+
 	private static Builder sample() {
 		return new Builder();
 	}
@@ -47,6 +54,7 @@ class ProjectTest {
 		private String name = "Sample";
 		private List<Platform> targets = List.of(Platform.of("PC"));
 		private List<String> tags = List.of(" Recomp ", "n64", "recomp", "");
+		private String category = "n64";
 
 		Builder name(String name) {
 			this.name = name;
@@ -58,18 +66,32 @@ class ProjectTest {
 			return this;
 		}
 
+		Builder category(String category) {
+			this.category = category;
+			return this;
+		}
+
 		Project build() {
 			return new Project(
 					ProjectId.of("sample"),
 					name,
 					"A sample project",
+					null,
 					Platform.of("N64"),
 					targets,
 					ProjectStatus.ACTIVE,
+					category,
 					Optional.of(URI.create("https://example.com/repo")),
 					Optional.empty(),
+					Optional.of(URI.create("https://example.com/preview.png")),
+					List.of(),
 					tags,
-					LocalDate.of(2026, 1, 1));
+					LocalDate.of(2026, 1, 1),
+					false,
+					Optional.empty(),
+					PublicationStatus.PUBLISHED,
+					0,
+					Optional.empty());
 		}
 	}
 }

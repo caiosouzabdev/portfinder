@@ -18,6 +18,7 @@ import com.portfinder.domain.Platform;
 import com.portfinder.domain.Project;
 import com.portfinder.domain.ProjectId;
 import com.portfinder.domain.ProjectStatus;
+import com.portfinder.domain.PublicationStatus;
 
 class CatalogQueryServiceTest {
 
@@ -26,9 +27,9 @@ class CatalogQueryServiceTest {
 	@BeforeEach
 	void setUp() {
 		List<Project> projects = List.of(
-				project("bravo", "Bravo Port", LocalDate.of(2025, 1, 1), ProjectStatus.ACTIVE),
-				project("alpha", "Alpha Recomp", LocalDate.of(2026, 5, 1), ProjectStatus.WIP),
-				project("charlie", "Charlie Decomp", LocalDate.of(2026, 5, 1), ProjectStatus.ACTIVE));
+				project("bravo", "Bravo Port", LocalDate.of(2025, 1, 1), ProjectStatus.ACTIVE, 1),
+				project("alpha", "Alpha Recomp", LocalDate.of(2026, 5, 1), ProjectStatus.WIP, 5),
+				project("charlie", "Charlie Decomp", LocalDate.of(2026, 5, 1), ProjectStatus.ACTIVE, 5));
 		ProjectCatalog catalog = new InMemoryProjectCatalog(projects);
 		service = new CatalogQueryService(catalog, new ProjectFilter());
 	}
@@ -40,21 +41,22 @@ class CatalogQueryServiceTest {
 	}
 
 	@Test
-	void sortsByUpdatedDescThenName() {
+	void sortsByVotesDescThenUpdatedThenName() {
 		List<Project> listed = service.list(CatalogSearchCriteria.empty());
 		assertEquals(List.of("alpha", "charlie", "bravo"), listed.stream().map(p -> p.id().value()).toList());
 	}
 
 	@Test
 	void sortsByNameAsc() {
-		var criteria = new CatalogSearchCriteria(null, null, null, null, null, CatalogSort.NAME_ASC);
+		var criteria = new CatalogSearchCriteria(null, null, null, null, null, null, CatalogSort.NAME_ASC, 0, 20);
 		List<Project> listed = service.list(criteria);
 		assertEquals(List.of("alpha", "bravo", "charlie"), listed.stream().map(p -> p.id().value()).toList());
 	}
 
 	@Test
 	void filtersBeforeSort() {
-		var criteria = new CatalogSearchCriteria(null, null, null, ProjectStatus.ACTIVE, null, CatalogSort.NAME_ASC);
+		var criteria = new CatalogSearchCriteria(null, null, null, ProjectStatus.ACTIVE, null, null,
+				CatalogSort.NAME_ASC, 0, 20);
 		List<Project> listed = service.list(criteria);
 		assertEquals(List.of("bravo", "charlie"), listed.stream().map(p -> p.id().value()).toList());
 	}
@@ -71,18 +73,27 @@ class CatalogQueryServiceTest {
 		assertTrue(service.getById("!!!").isEmpty());
 	}
 
-	private static Project project(String id, String name, LocalDate updatedAt, ProjectStatus status) {
+	private static Project project(String id, String name, LocalDate updatedAt, ProjectStatus status, int votes) {
 		return new Project(
 				ProjectId.of(id),
 				name,
 				"Summary for " + name,
+				"Summary for " + name,
 				Platform.of("N64"),
 				List.of(Platform.of("PC")),
 				status,
+				"n64",
 				Optional.of(URI.create("https://example.com/" + id)),
 				Optional.empty(),
+				Optional.empty(),
+				List.of(),
 				List.of("sample"),
-				updatedAt);
+				updatedAt,
+				false,
+				Optional.empty(),
+				PublicationStatus.PUBLISHED,
+				votes,
+				Optional.empty());
 	}
 
 	private static final class InMemoryProjectCatalog implements ProjectCatalog {

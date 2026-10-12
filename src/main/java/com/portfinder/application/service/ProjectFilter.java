@@ -4,6 +4,7 @@ import java.util.Locale;
 
 import com.portfinder.application.query.CatalogSearchCriteria;
 import com.portfinder.domain.Project;
+import com.portfinder.domain.PublicationStatus;
 
 /**
  * Pure matching rules for catalog search/filter. No I/O, no Spring.
@@ -11,6 +12,9 @@ import com.portfinder.domain.Project;
 public final class ProjectFilter {
 
 	public boolean matches(Project project, CatalogSearchCriteria criteria) {
+		if (project.publicationStatus() != PublicationStatus.PUBLISHED) {
+			return false;
+		}
 		if (criteria.hasOriginalPlatform()
 				&& !project.originalPlatform().matchesIgnoreCase(criteria.originalPlatform())) {
 			return false;
@@ -24,6 +28,9 @@ public final class ProjectFilter {
 		if (criteria.hasTag() && !project.hasTag(criteria.tag())) {
 			return false;
 		}
+		if (criteria.hasCategory() && !project.matchesCategory(criteria.category())) {
+			return false;
+		}
 		if (criteria.hasQuery() && !matchesQuery(project, criteria.query())) {
 			return false;
 		}
@@ -32,10 +39,11 @@ public final class ProjectFilter {
 
 	private boolean matchesQuery(Project project, String query) {
 		String needle = query.toLowerCase(Locale.ROOT);
-		if (contains(project.name(), needle) || contains(project.summary(), needle)) {
+		if (contains(project.name(), needle) || contains(project.summary(), needle)
+				|| contains(project.description(), needle)) {
 			return true;
 		}
-		if (contains(project.originalPlatform().label(), needle)) {
+		if (contains(project.originalPlatform().label(), needle) || contains(project.category(), needle)) {
 			return true;
 		}
 		if (project.targetPlatforms().stream().anyMatch(p -> contains(p.label(), needle))) {

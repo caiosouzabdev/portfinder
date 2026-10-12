@@ -1,12 +1,24 @@
 {
-  "id": "perfect-dark-port",
-  "name": "Perfect Dark PC Port",
-  "summary": "Work-in-progress port of the Perfect Dark N64 decompilation to modern platforms, with public CI/dev builds.",
-  "originalPlatform": "N64",
-  "targetPlatforms": ["PC"],
-  "status": "WIP",
-  "repoUrl": "https://github.com/perfect-dark-pc-port/perfect_dark",
-  "homepageUrl": "https://github.com/perfect-dark-pc-port/perfect_dark/releases",
-  "tags": ["decomp", "port", "n64", "fps"],
-  "updatedAt": "2026-08-13"
+    "id":  "perfect-dark-port",
+    "name":  "Perfect Dark PC Port",
+    "summary":  "Work-in-progress port of the Perfect Dark N64 decompilation to modern platforms, with public CI/dev builds.",
+    "description":  "Work-in-progress port of the Perfect Dark N64 decompilation to modern platforms, with public CI/dev builds.",
+    "originalPlatform":  "N64",
+    "targetPlatforms":  [
+                            "PC"
+                        ],
+    "category":  "n64",
+    "status":  "WIP",
+    "repoUrl":  "https://github.com/perfect-dark-pc-port/perfect_dark",
+    "homepageUrl":  "https://github.com/perfect-dark-pc-port/perfect_dark/releases",
+    "imageUrl":  "https://socialify.git.ci/perfect-dark-pc-port/perfect_dark/image?description=1\u0026font=Source%20Code%20Pro\u0026language=1\u0026name=1\u0026owner=1\u0026pattern=Solid\u0026theme=Dark",
+    "screenshotUrls": [],
+    "tags":  [
+                 "decomp",
+                 "port",
+                 "n64",
+                 "fps"
+             ],
+    "featured":  false,
+    "updatedAt":  "2026-08-13"
 }

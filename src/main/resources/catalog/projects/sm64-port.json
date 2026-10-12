@@ -1,12 +1,23 @@
 {
-  "id": "sm64-port",
-  "name": "Super Mario 64 Port",
-  "summary": "Community PC port lineage descending from the SM64 decompilation project for modern devices.",
-  "originalPlatform": "N64",
-  "targetPlatforms": ["PC"],
-  "status": "ACTIVE",
-  "repoUrl": "https://github.com/sm64-port/sm64-port",
-  "homepageUrl": "",
-  "tags": ["decomp", "port", "n64"],
-  "updatedAt": "2024-11-15"
+    "id":  "sm64-port",
+    "name":  "Super Mario 64 Port",
+    "summary":  "Community PC port lineage descending from the SM64 decompilation project for modern devices.",
+    "description":  "Community PC port lineage descending from the SM64 decompilation project for modern devices.",
+    "originalPlatform":  "N64",
+    "targetPlatforms":  [
+                            "PC"
+                        ],
+    "category":  "n64",
+    "status":  "ACTIVE",
+    "repoUrl":  "https://github.com/sm64-port/sm64-port",
+    "homepageUrl":  "",
+    "imageUrl":  "https://socialify.git.ci/sm64-port/sm64-port/image?description=1\u0026font=Source%20Code%20Pro\u0026language=1\u0026name=1\u0026owner=1\u0026pattern=Solid\u0026theme=Dark",
+    "screenshotUrls": [],
+    "tags":  [
+                 "decomp",
+                 "port",
+                 "n64"
+             ],
+    "featured":  true,
+    "updatedAt":  "2024-11-15"
 }

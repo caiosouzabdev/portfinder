@@ -4,15 +4,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 
-import tools.jackson.databind.ObjectMapper;
+import com.portfinder.domain.Project;
 import com.portfinder.domain.ProjectId;
 
-class JsonProjectCatalogTest {
+import tools.jackson.databind.ObjectMapper;
+
+class JsonCatalogLoaderTest {
 
 	private final ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver(
 			new DefaultResourceLoader());
@@ -20,27 +24,29 @@ class JsonProjectCatalogTest {
 
 	@Test
 	void loadsValidFixtureProjects() {
-		JsonProjectCatalog catalog = new JsonProjectCatalog(resolver, objectMapper,
+		JsonCatalogLoader loader = new JsonCatalogLoader(resolver, objectMapper,
 				"classpath:catalog-fixtures/valid/*.json");
-		catalog.reloadForTests();
+		List<Project> projects = loader.loadAll();
 
-		assertEquals(2, catalog.findAll().size());
-		assertTrue(catalog.findById(ProjectId.of("alpha-recomp")).isPresent());
-		assertEquals("Alpha Recomp", catalog.findById(ProjectId.of("alpha-recomp")).orElseThrow().name());
+		assertEquals(2, projects.size());
+		assertTrue(projects.stream().anyMatch(p -> p.id().equals(ProjectId.of("alpha-recomp"))));
+		assertEquals("Alpha Recomp",
+				projects.stream().filter(p -> p.id().equals(ProjectId.of("alpha-recomp"))).findFirst().orElseThrow()
+						.name());
 	}
 
 	@Test
 	void failsFastOnDuplicateIds() {
-		JsonProjectCatalog catalog = new JsonProjectCatalog(resolver, objectMapper,
+		JsonCatalogLoader loader = new JsonCatalogLoader(resolver, objectMapper,
 				"classpath:catalog-fixtures/duplicate/*.json");
-		IllegalStateException ex = assertThrows(IllegalStateException.class, catalog::reloadForTests);
+		IllegalStateException ex = assertThrows(IllegalStateException.class, loader::loadAll);
 		assertTrue(ex.getMessage().contains("Duplicate project id"));
 	}
 
 	@Test
 	void failsFastOnInvalidDocument() {
-		JsonProjectCatalog catalog = new JsonProjectCatalog(resolver, objectMapper,
+		JsonCatalogLoader loader = new JsonCatalogLoader(resolver, objectMapper,
 				"classpath:catalog-fixtures/invalid/*.json");
-		assertThrows(IllegalStateException.class, catalog::reloadForTests);
+		assertThrows(RuntimeException.class, loader::loadAll);
 	}
 }

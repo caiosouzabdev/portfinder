@@ -36,6 +36,20 @@ body:
       placeholder: N64
     validations:
       required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: See docs/CATEGORY_TAXONOMY.md
+      options:
+        - n64
+        - gba
+        - game-boy
+        - xbox
+        - xbox-360
+        - psp
+    validations:
+      required: true
   - type: input
     id: target-platforms
     attributes:
@@ -44,6 +58,11 @@ body:
       placeholder: PC
     validations:
       required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Longer description (optional)
+      description: Shown on the project detail page. Defaults to the short summary.
   - type: dropdown
     id: status
     attributes:
@@ -66,6 +85,12 @@ body:
     id: homepage-url
     attributes:
       label: Homepage URL (optional)
+  - type: input
+    id: image-url
+    attributes:
+      label: Preview image URL (optional)
+      description: Prefer a screenshot or social-preview image hosted by the project repository.
+      placeholder: https://raw.githubusercontent.com/org/repo/main/docs/social-preview.png
   - type: input
     id: tags
     attributes:

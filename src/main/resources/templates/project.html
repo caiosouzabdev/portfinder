@@ -3,16 +3,57 @@
       th:replace="~{layout :: layout(~{::title}, ~{::main})}">
 <head>
   <title th:text="|${project.name} — portfinder|">project — portfinder</title>
+  <meta property="og:title" th:content="${project.name}">
+  <meta property="og:description" th:content="${project.summary}">
+  <meta th:if="${project.hasImage()}" property="og:image" th:content="${project.imageUrl.get()}">
 </head>
 <body>
 <main class="shell">
-  <p class="prompt"><a th:href="@{/}">← catalog</a></p>
-  <article class="detail">
-    <header class="detail-header">
-      <h1 th:text="${project.name}">Project</h1>
-      <span class="status" th:classappend="| status-${project.status.name().toLowerCase()}|" th:text="${project.status}">ACTIVE</span>
-    </header>
-    <p class="lede" th:text="${project.summary}">Summary</p>
+  <p class="prompt"><a th:href="@{/}">← feed</a>
+    <span th:if="${category != null}"> · <a th:href="@{/categories/{slug}(slug=${category.slug()})}" th:text="${category.label()}">N64</a></span>
+  </p>
+  <article class="detail detail-hero">
+    <div class="detail-top">
+      <div class="detail-identity">
+        <div class="thumb large" th:if="${project.hasImage()}">
+          <img th:src="${project.imageUrl.get()}" th:alt="|Preview for ${project.name}|" loading="lazy">
+        </div>
+        <div class="thumb large placeholder" th:unless="${project.hasImage()}" th:text="${project.originalPlatform.label()}">N64</div>
+        <div>
+          <header class="detail-header">
+            <h1 th:text="${project.name}">Project</h1>
+            <span class="status" th:classappend="| status-${project.status.name().toLowerCase()}|" th:text="${project.status}">ACTIVE</span>
+          </header>
+          <p class="lede" th:text="${project.summary}">Summary</p>
+          <div class="chips">
+            <a class="chip" th:if="${category != null}" th:href="@{/categories/{slug}(slug=${category.slug()})}" th:text="${category.label()}">N64</a>
+            <span class="chip trending" th:if="${project.isTrending(today)}">trending</span>
+          </div>
+          <p class="submitter" th:if="${project.submittedByDisplayName.isPresent()}">
+            Submitted by <span th:text="${project.submittedByDisplayName.get()}">user</span>
+          </p>
+        </div>
+      </div>
+      <div class="detail-aside">
+        <button type="button" class="vote-btn large"
+                th:classappend="${hasVoted} ? ' voted'"
+                th:attr="data-vote=${project.id.value()},data-signed-in=${signedIn}">
+          <span class="vote-arrow" aria-hidden="true">▲</span>
+          <span data-vote-count th:text="${project.voteCount}">0</span>
+        </button>
+        <div class="actions stacked">
+          <a class="btn" th:if="${project.repoUrl.isPresent()}" th:href="${project.repoUrl.get()}" rel="noopener noreferrer" target="_blank">visit repository</a>
+          <a class="btn ghost" th:if="${project.homepageUrl.isPresent()}" th:href="${project.homepageUrl.get()}" rel="noopener noreferrer" target="_blank">homepage</a>
+          <button type="button" class="btn ghost" data-share th:attr="data-share-title=${project.name}">share</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-description">
+      <h2>About</h2>
+      <p th:text="${project.description}">Description</p>
+    </div>
+
     <dl class="facts">
       <div>
         <dt>id</dt>
@@ -20,13 +61,14 @@
       </div>
       <div>
         <dt>original</dt>
-        <dd th:text="${project.originalPlatform.label()}">N64</dd>
+        <dd><a th:href="@{/(original=${project.originalPlatform.label()})}" th:text="${project.originalPlatform.label()}">N64</a></dd>
       </div>
       <div>
         <dt>targets</dt>
         <dd>
-          <span th:each="tp, iter : ${project.targetPlatforms}"
-                th:text="${tp.label()} + (${iter.last} ? '' : ', ')">PC</span>
+          <a th:each="tp, iter : ${project.targetPlatforms}"
+             th:href="@{/(target=${tp.label()})}"
+             th:text="|${tp.label()}${iter.last ? '' : ', '}|">PC</a>
         </dd>
       </div>
       <div>
@@ -34,14 +76,48 @@
         <dd th:text="${project.updatedAt}">2026-01-01</dd>
       </div>
     </dl>
+
     <div class="chips" th:if="${!project.tags.isEmpty()}">
-      <span class="chip tag" th:each="tag : ${project.tags}" th:text="${tag}">tag</span>
+      <a class="chip tag" th:each="tag : ${project.tags}" th:href="@{/(tag=${tag})}" th:text="${tag}">tag</a>
     </div>
-    <div class="actions">
-      <a class="btn" th:if="${project.repoUrl.isPresent()}" th:href="${project.repoUrl.get()}" rel="noopener noreferrer" target="_blank">repository</a>
-      <a class="btn ghost" th:if="${project.homepageUrl.isPresent()}" th:href="${project.homepageUrl.get()}" rel="noopener noreferrer" target="_blank">homepage</a>
-    </div>
+
+    <section class="screenshots" th:if="${project.hasScreenshots()}">
+      <h2>Screenshots</h2>
+      <div class="shot-grid">
+        <button type="button" class="shot" th:each="shot : ${project.screenshotUrls}"
+                th:attr="data-lightbox=${shot}">
+          <img th:src="${shot}" alt="Screenshot" loading="lazy">
+        </button>
+      </div>
+    </section>
   </article>
+
+  <section class="related" th:if="${!related.isEmpty()}">
+    <h2 class="section-label">Related</h2>
+    <ol class="feed compact">
+      <li th:each="item : ${related}" class="feed-card">
+        <div class="feed-main">
+          <a class="thumb-link" th:href="@{/projects/{id}(id=${item.id.value()})}">
+            <div class="thumb" th:if="${item.hasImage()}">
+              <img th:src="${item.imageUrl.get()}" th:alt="|Preview for ${item.name}|" loading="lazy">
+            </div>
+            <div class="thumb placeholder" th:unless="${item.hasImage()}" th:text="${item.originalPlatform.label()}">N64</div>
+          </a>
+          <div class="feed-body">
+            <a class="title-link" th:href="@{/projects/{id}(id=${item.id.value()})}">
+              <strong th:text="${item.name}">Name</strong>
+            </a>
+            <p class="summary" th:text="${item.summary}">Summary</p>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <dialog id="screenshot-lightbox" class="modal lightbox">
+    <img src="" alt="">
+    <button type="button" class="btn ghost" data-close-dialog>close</button>
+  </dialog>
 </main>
 </body>
 </html>

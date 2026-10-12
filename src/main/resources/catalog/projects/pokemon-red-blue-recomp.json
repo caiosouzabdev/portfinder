@@ -1,12 +1,23 @@
 {
-  "id": "pokemon-red-blue-recomp",
-  "name": "Pokémon Red & Blue Recomp",
-  "summary": "Pokémon Red & Blue statically recompiled for Game Boy using a gb-recompiled fork (R.A.I.D.), with a Windows x64 release.",
-  "originalPlatform": "Game Boy",
-  "targetPlatforms": ["PC"],
-  "status": "WIP",
-  "repoUrl": "https://github.com/mstan/PokemonRedAndBlueRecomp",
-  "homepageUrl": "https://github.com/mstan/PokemonRedAndBlueRecomp/releases",
-  "tags": ["recomp", "pokemon", "gb"],
-  "updatedAt": "2026-07-23"
+    "id":  "pokemon-red-blue-recomp",
+    "name":  "PokÃƒÂ©mon Red \u0026 Blue Recomp",
+    "summary":  "PokÃƒÂ©mon Red \u0026 Blue statically recompiled for Game Boy using a gb-recompiled fork (R.A.I.D.), with a Windows x64 release.",
+    "description":  "PokÃƒÂ©mon Red \u0026 Blue statically recompiled for Game Boy using a gb-recompiled fork (R.A.I.D.), with a Windows x64 release.",
+    "originalPlatform":  "Game Boy",
+    "targetPlatforms":  [
+                            "PC"
+                        ],
+    "category":  "game-boy",
+    "status":  "WIP",
+    "repoUrl":  "https://github.com/mstan/PokemonRedAndBlueRecomp",
+    "homepageUrl":  "https://github.com/mstan/PokemonRedAndBlueRecomp/releases",
+    "imageUrl":  "https://socialify.git.ci/mstan/PokemonRedAndBlueRecomp/image?description=1\u0026font=Source%20Code%20Pro\u0026language=1\u0026name=1\u0026owner=1\u0026pattern=Solid\u0026theme=Dark",
+    "screenshotUrls": [],
+    "tags":  [
+                 "recomp",
+                 "pokemon",
+                 "gb"
+             ],
+    "featured":  false,
+    "updatedAt":  "2026-07-23"
 }

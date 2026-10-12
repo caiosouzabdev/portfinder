@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:portfinder-test;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: test-client
+            client-secret: test-secret
+
+portfinder:
+  catalog:
+    location-pattern: classpath:catalog/projects/*.json
+  github:
+    repo-url: https://github.com/caiosouzabdev/portfinder
+  security:
+    oauth-enabled: false
+  moderation:
+    admin-emails: admin@example.com
+  rate-limit:
+    votes-per-minute: 30
+    submits-per-hour: 5

@@ -1,12 +1,23 @@
 {
-  "id": "firered-leafgreen-recomp",
-  "name": "FireRed & LeafGreen Recomp",
-  "summary": "Pokémon FireRed and LeafGreen statically recompiled with gbarecomp; separate Windows x64 builds published.",
-  "originalPlatform": "GBA",
-  "targetPlatforms": ["PC"],
-  "status": "WIP",
-  "repoUrl": "https://github.com/mstan/FireRedLeafGreenRecomp",
-  "homepageUrl": "https://github.com/mstan/FireRedLeafGreenRecomp/releases",
-  "tags": ["recomp", "pokemon", "gba"],
-  "updatedAt": "2026-09-09"
+    "id":  "firered-leafgreen-recomp",
+    "name":  "FireRed \u0026 LeafGreen Recomp",
+    "summary":  "PokÃƒÂ©mon FireRed and LeafGreen statically recompiled with gbarecomp; separate Windows x64 builds published.",
+    "description":  "PokÃƒÂ©mon FireRed and LeafGreen statically recompiled with gbarecomp; separate Windows x64 builds published.",
+    "originalPlatform":  "GBA",
+    "targetPlatforms":  [
+                            "PC"
+                        ],
+    "category":  "gba",
+    "status":  "WIP",
+    "repoUrl":  "https://github.com/mstan/FireRedLeafGreenRecomp",
+    "homepageUrl":  "https://github.com/mstan/FireRedLeafGreenRecomp/releases",
+    "imageUrl":  "https://socialify.git.ci/mstan/FireRedLeafGreenRecomp/image?description=1\u0026font=Source%20Code%20Pro\u0026language=1\u0026name=1\u0026owner=1\u0026pattern=Solid\u0026theme=Dark",
+    "screenshotUrls": [],
+    "tags":  [
+                 "recomp",
+                 "pokemon",
+                 "gba"
+             ],
+    "featured":  false,
+    "updatedAt":  "2026-09-09"
 }

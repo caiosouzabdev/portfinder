@@ -1,12 +1,23 @@
 {
-  "id": "zelda64-recomp",
-  "name": "Zelda 64: Recompiled",
-  "summary": "Static recompilation of The Legend of Zelda: Majora's Mask for PC (Windows/Linux/Mac), with modern enhancements.",
-  "originalPlatform": "N64",
-  "targetPlatforms": ["PC"],
-  "status": "ACTIVE",
-  "repoUrl": "https://github.com/Zelda64Recomp/Zelda64Recomp",
-  "homepageUrl": "https://github.com/Zelda64Recomp/Zelda64Recomp/releases",
-  "tags": ["recomp", "n64", "zelda"],
-  "updatedAt": "2026-09-25"
+    "id":  "zelda64-recomp",
+    "name":  "Zelda 64: Recompiled",
+    "summary":  "Static recompilation of The Legend of Zelda: Majora\u0027s Mask for PC (Windows/Linux/Mac), with modern enhancements.",
+    "description":  "Static recompilation of The Legend of Zelda: Majora\u0027s Mask for PC (Windows/Linux/Mac), with modern enhancements.",
+    "originalPlatform":  "N64",
+    "targetPlatforms":  [
+                            "PC"
+                        ],
+    "category":  "n64",
+    "status":  "ACTIVE",
+    "repoUrl":  "https://github.com/Zelda64Recomp/Zelda64Recomp",
+    "homepageUrl":  "https://github.com/Zelda64Recomp/Zelda64Recomp/releases",
+    "imageUrl":  "https://raw.githubusercontent.com/Zelda64Recomp/Zelda64Recomp/dev/docs/deck_gyro_1.jpg",
+    "screenshotUrls": [],
+    "tags":  [
+                 "recomp",
+                 "n64",
+                 "zelda"
+             ],
+    "featured":  true,
+    "updatedAt":  "2026-09-25"
 }

@@ -1,8 +1,8 @@
 # portfinder
 
-A curated hub for discovering **game decompilation** and **recompilation** port projects.
+A community hub for discovering **game decompilation** and **recompilation** port projects.
 
-Browse and filter by original platform, target platform, status, and tags. The catalog lives in git; the community contributes through GitHub Issues and Pull Requests.
+Browse a ranked feed, filter by platform and tags, explore categories, vote on projects, and submit new entries for moderator review. Seed catalog data lives in git; the running app stores projects, users, and votes in a database.
 
 **Policy:** metadata and links only. This project never hosts ROMs, ISOs, or copyrighted game assets.
 
@@ -10,18 +10,18 @@ Browse and filter by original platform, target platform, status, and tags. The c
 
 - Java 21
 - Spring Boot 4
-- Thymeleaf + static CSS
-- JSON files on the classpath as the catalog source of truth
+- Thymeleaf + terminal-themed CSS
+- Spring Data JPA + Flyway
+- H2 (local/tests) / PostgreSQL (production)
+- Optional Google OAuth 2.0 for sign-in, votes, and submissions
 
 ## Architecture
 
-Hexagonal layout with SOLID applied pragmatically:
-
 | Layer | Package | Role |
 |-------|---------|------|
-| Domain | `com.portfinder.domain` | `Project`, `ProjectId`, platforms, status |
-| Application | `com.portfinder.application` | `ProjectCatalog` port, `ProjectFilter`, `CatalogQueryService` |
-| Infrastructure | `com.portfinder.infrastructure.catalog` | `JsonProjectCatalog` |
+| Domain | `com.portfinder.domain` | `Project`, categories, status, publication |
+| Application | `com.portfinder.application` | query, filter, votes, submissions |
+| Infrastructure | `com.portfinder.infrastructure` | JPA, JSON seed loader, security |
 | Web | `com.portfinder.web` | Controllers + Thymeleaf views |
 
 ## Run locally
@@ -35,12 +35,41 @@ Requires JDK 21.
 
 App: http://localhost:8080
 
+By default the app uses in-memory H2, seeds from `src/main/resources/catalog/projects/*.json`, and leaves Google OAuth disabled (`auth offline` in the header).
+
+## Google OAuth and PostgreSQL
+
+See [docs/ENV.md](docs/ENV.md) for variable names.
+
+Example:
+
+```bash
+export PORTFINDER_OAUTH_ENABLED=true
+export GOOGLE_CLIENT_ID=your-client-id
+export GOOGLE_CLIENT_SECRET=your-client-secret
+export PORTFINDER_ADMIN_EMAILS=you@example.com
+export DATABASE_URL=jdbc:postgresql://localhost:5432/portfinder
+export DATABASE_USERNAME=portfinder
+export DATABASE_PASSWORD=secret
+export DATABASE_DRIVER=org.postgresql.Driver
+./mvnw spring-boot:run
+```
+
+Create a Google OAuth client with redirect URI `http://localhost:8080/login/oauth2/code/google`.
+
+Admin emails listed in `PORTFINDER_ADMIN_EMAILS` can open `/moderation` to approve or reject submissions.
+
+## Categories
+
+See [docs/CATEGORY_TAXONOMY.md](docs/CATEGORY_TAXONOMY.md).
+
 ## Contribute
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-- Suggest: open an Issue with the suggest-project template
-- Add/edit: PR a file under `src/main/resources/catalog/projects/`
+- Primary: in-app **Submit** (when auth is enabled)
+- Suggest: GitHub Issue template
+- Seed data: PR JSON under `src/main/resources/catalog/projects/`
 
 ## License
 

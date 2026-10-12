@@ -1,12 +1,26 @@
 {
-  "id": "gen2recomped",
-  "name": "Gen2Recomped",
-  "summary": "Generation 2 Pokémon native port forked from Gen1Recomp, with published builds for Windows, Linux, macOS, Android, and Switch.",
-  "originalPlatform": "Game Boy Color",
-  "targetPlatforms": ["PC", "Android", "Switch"],
-  "status": "ACTIVE",
-  "repoUrl": "https://github.com/UNDERdecoded/Gen2Recomped",
-  "homepageUrl": "https://github.com/UNDERdecoded/Gen2Recomped/releases",
-  "tags": ["recreation", "pokemon", "love2d", "gbc"],
-  "updatedAt": "2026-10-11"
+    "id":  "gen2recomped",
+    "name":  "Gen2Recomped",
+    "summary":  "Generation 2 PokÃƒÂ©mon native port forked from Gen1Recomp, with published builds for Windows, Linux, macOS, Android, and Switch.",
+    "description":  "Generation 2 PokÃƒÂ©mon native port forked from Gen1Recomp, with published builds for Windows, Linux, macOS, Android, and Switch.",
+    "originalPlatform":  "Game Boy Color",
+    "targetPlatforms":  [
+                            "PC",
+                            "Android",
+                            "Switch"
+                        ],
+    "category":  "game-boy",
+    "status":  "ACTIVE",
+    "repoUrl":  "https://github.com/UNDERdecoded/Gen2Recomped",
+    "homepageUrl":  "https://github.com/UNDERdecoded/Gen2Recomped/releases",
+    "imageUrl":  "https://socialify.git.ci/UNDERdecoded/Gen2Recomped/image?description=1\u0026font=Source%20Code%20Pro\u0026language=1\u0026name=1\u0026owner=1\u0026pattern=Solid\u0026theme=Dark",
+    "screenshotUrls": [],
+    "tags":  [
+                 "recreation",
+                 "pokemon",
+                 "love2d",
+                 "gbc"
+             ],
+    "featured":  false,
+    "updatedAt":  "2026-10-11"
 }

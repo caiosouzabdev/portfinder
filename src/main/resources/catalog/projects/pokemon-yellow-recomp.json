@@ -1,12 +1,23 @@
 {
-  "id": "pokemon-yellow-recomp",
-  "name": "Pokémon Yellow Recomp",
-  "summary": "Pokémon Yellow statically recompiled (extended National Dex support) with a published Windows build.",
-  "originalPlatform": "Game Boy",
-  "targetPlatforms": ["PC"],
-  "status": "WIP",
-  "repoUrl": "https://github.com/mstan/PokemonYellowRecomp",
-  "homepageUrl": "https://github.com/mstan/PokemonYellowRecomp/releases",
-  "tags": ["recomp", "pokemon", "gb"],
-  "updatedAt": "2026-07-23"
+    "id":  "pokemon-yellow-recomp",
+    "name":  "PokÃƒÂ©mon Yellow Recomp",
+    "summary":  "PokÃƒÂ©mon Yellow statically recompiled (extended National Dex support) with a published Windows build.",
+    "description":  "PokÃƒÂ©mon Yellow statically recompiled (extended National Dex support) with a published Windows build.",
+    "originalPlatform":  "Game Boy",
+    "targetPlatforms":  [
+                            "PC"
+                        ],
+    "category":  "game-boy",
+    "status":  "WIP",
+    "repoUrl":  "https://github.com/mstan/PokemonYellowRecomp",
+    "homepageUrl":  "https://github.com/mstan/PokemonYellowRecomp/releases",
+    "imageUrl":  "https://socialify.git.ci/mstan/PokemonYellowRecomp/image?description=1\u0026font=Source%20Code%20Pro\u0026language=1\u0026name=1\u0026owner=1\u0026pattern=Solid\u0026theme=Dark",
+    "screenshotUrls": [],
+    "tags":  [
+                 "recomp",
+                 "pokemon",
+                 "gb"
+             ],
+    "featured":  false,
+    "updatedAt":  "2026-07-23"
 }

@@ -1,12 +1,24 @@
 {
-  "id": "ship-of-harkinian",
-  "name": "Ship of Harkinian",
-  "summary": "PC port of The Legend of Zelda: Ocarina of Time built from a matching decompilation (Harbour Masters / Shipwright).",
-  "originalPlatform": "N64",
-  "targetPlatforms": ["PC"],
-  "status": "ACTIVE",
-  "repoUrl": "https://github.com/HarbourMasters/Shipwright",
-  "homepageUrl": "https://www.shipofharkinian.com/",
-  "tags": ["decomp", "port", "n64", "zelda"],
-  "updatedAt": "2026-10-12"
+    "id":  "ship-of-harkinian",
+    "name":  "Ship of Harkinian",
+    "summary":  "PC port of The Legend of Zelda: Ocarina of Time built from a matching decompilation (Harbour Masters / Shipwright).",
+    "description":  "PC port of The Legend of Zelda: Ocarina of Time built from a matching decompilation (Harbour Masters / Shipwright).",
+    "originalPlatform":  "N64",
+    "targetPlatforms":  [
+                            "PC"
+                        ],
+    "category":  "n64",
+    "status":  "ACTIVE",
+    "repoUrl":  "https://github.com/HarbourMasters/Shipwright",
+    "homepageUrl":  "https://www.shipofharkinian.com/",
+    "imageUrl":  "https://raw.githubusercontent.com/HarbourMasters/Shipwright/develop/docs/shiptitle.darkmode.png",
+    "screenshotUrls": [],
+    "tags":  [
+                 "decomp",
+                 "port",
+                 "n64",
+                 "zelda"
+             ],
+    "featured":  true,
+    "updatedAt":  "2026-10-12"
 }

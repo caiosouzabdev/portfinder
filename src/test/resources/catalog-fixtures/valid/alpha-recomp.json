@@ -1,12 +1,21 @@
 {
-  "id": "alpha-recomp",
-  "name": "Alpha Recomp",
-  "summary": "Fixture project A",
-  "originalPlatform": "N64",
-  "targetPlatforms": ["PC"],
-  "status": "ACTIVE",
-  "repoUrl": "https://example.com/alpha",
-  "homepageUrl": "",
-  "tags": ["fixture"],
-  "updatedAt": "2026-01-01"
+    "id":  "alpha-recomp",
+    "name":  "Alpha Recomp",
+    "summary":  "Fixture project A",
+    "description":  "Fixture project A",
+    "originalPlatform":  "N64",
+    "targetPlatforms":  [
+                            "PC"
+                        ],
+    "category":  "n64",
+    "status":  "ACTIVE",
+    "repoUrl":  "https://example.com/alpha",
+    "homepageUrl":  "",
+    "imageUrl":  "https://example.com/alpha.png",
+    "screenshotUrls": [],
+    "tags":  [
+                 "fixture"
+             ],
+    "featured":  false,
+    "updatedAt":  "2026-01-01"
 }

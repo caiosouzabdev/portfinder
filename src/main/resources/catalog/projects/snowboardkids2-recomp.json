@@ -1,12 +1,24 @@
 {
-  "id": "snowboardkids2-recomp",
-  "name": "Snowboard Kids 2: Recompiled",
-  "summary": "Snowboard Kids 2 for PC (Windows/Linux/macOS) via static recompilation, with public releases.",
-  "originalPlatform": "N64",
-  "targetPlatforms": ["PC"],
-  "status": "ACTIVE",
-  "repoUrl": "https://github.com/cdlewis/snowboardkids2-recomp",
-  "homepageUrl": "https://github.com/cdlewis/snowboardkids2-recomp/releases",
-  "tags": ["recomp", "n64", "racing", "sports"],
-  "updatedAt": "2026-09-27"
+    "id":  "snowboardkids2-recomp",
+    "name":  "Snowboard Kids 2: Recompiled",
+    "summary":  "Snowboard Kids 2 for PC (Windows/Linux/macOS) via static recompilation, with public releases.",
+    "description":  "Snowboard Kids 2 for PC (Windows/Linux/macOS) via static recompilation, with public releases.",
+    "originalPlatform":  "N64",
+    "targetPlatforms":  [
+                            "PC"
+                        ],
+    "category":  "n64",
+    "status":  "ACTIVE",
+    "repoUrl":  "https://github.com/cdlewis/snowboardkids2-recomp",
+    "homepageUrl":  "https://github.com/cdlewis/snowboardkids2-recomp/releases",
+    "imageUrl":  "https://raw.githubusercontent.com/cdlewis/snowboardkids2-recomp/main/assets/launcher_background.png",
+    "screenshotUrls": [],
+    "tags":  [
+                 "recomp",
+                 "n64",
+                 "racing",
+                 "sports"
+             ],
+    "featured":  false,
+    "updatedAt":  "2026-09-27"
 }

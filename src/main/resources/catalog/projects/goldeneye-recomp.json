@@ -1,12 +1,23 @@
 {
-  "id": "goldeneye-recomp",
-  "name": "GoldenEye Recomp",
-  "summary": "Community static recompilation bringing GoldenEye 007 to native PC, with published Windows builds.",
-  "originalPlatform": "N64",
-  "targetPlatforms": ["PC"],
-  "status": "ACTIVE",
-  "repoUrl": "https://github.com/SunJaycy/GoldenEye-Recomp",
-  "homepageUrl": "https://github.com/SunJaycy/GoldenEye-Recomp/releases",
-  "tags": ["recomp", "n64", "fps"],
-  "updatedAt": "2026-06-18"
+    "id":  "goldeneye-recomp",
+    "name":  "GoldenEye Recomp",
+    "summary":  "Community static recompilation bringing GoldenEye 007 to native PC, with published Windows builds.",
+    "description":  "Community static recompilation bringing GoldenEye 007 to native PC, with published Windows builds.",
+    "originalPlatform":  "N64",
+    "targetPlatforms":  [
+                            "PC"
+                        ],
+    "category":  "n64",
+    "status":  "ACTIVE",
+    "repoUrl":  "https://github.com/SunJaycy/GoldenEye-Recomp",
+    "homepageUrl":  "https://github.com/SunJaycy/GoldenEye-Recomp/releases",
+    "imageUrl":  "https://socialify.git.ci/SunJaycy/GoldenEye-Recomp/image?description=1\u0026font=Source%20Code%20Pro\u0026language=1\u0026name=1\u0026owner=1\u0026pattern=Solid\u0026theme=Dark",
+    "screenshotUrls": [],
+    "tags":  [
+                 "recomp",
+                 "n64",
+                 "fps"
+             ],
+    "featured":  false,
+    "updatedAt":  "2026-06-18"
 }

@@ -1,12 +1,23 @@
 {
-  "id": "emerald-recomp",
-  "name": "Pokémon Emerald Recomp",
-  "summary": "Pokémon Emerald statically recompiled for GBA→PC using gbarecomp (R.A.I.D.), with Windows and Linux release builds.",
-  "originalPlatform": "GBA",
-  "targetPlatforms": ["PC"],
-  "status": "WIP",
-  "repoUrl": "https://github.com/mstan/EmeraldRecomp",
-  "homepageUrl": "https://github.com/mstan/EmeraldRecomp/releases",
-  "tags": ["recomp", "pokemon", "gba"],
-  "updatedAt": "2026-09-27"
+    "id":  "emerald-recomp",
+    "name":  "PokÃƒÂ©mon Emerald Recomp",
+    "summary":  "PokÃƒÂ©mon Emerald statically recompiled for GBAÃ¢â€ â€™PC using gbarecomp (R.A.I.D.), with Windows and Linux release builds.",
+    "description":  "PokÃƒÂ©mon Emerald statically recompiled for GBAÃ¢â€ â€™PC using gbarecomp (R.A.I.D.), with Windows and Linux release builds.",
+    "originalPlatform":  "GBA",
+    "targetPlatforms":  [
+                            "PC"
+                        ],
+    "category":  "gba",
+    "status":  "WIP",
+    "repoUrl":  "https://github.com/mstan/EmeraldRecomp",
+    "homepageUrl":  "https://github.com/mstan/EmeraldRecomp/releases",
+    "imageUrl":  "https://socialify.git.ci/mstan/EmeraldRecomp/image?description=1\u0026font=Source%20Code%20Pro\u0026language=1\u0026name=1\u0026owner=1\u0026pattern=Solid\u0026theme=Dark",
+    "screenshotUrls": [],
+    "tags":  [
+                 "recomp",
+                 "pokemon",
+                 "gba"
+             ],
+    "featured":  false,
+    "updatedAt":  "2026-09-27"
 }

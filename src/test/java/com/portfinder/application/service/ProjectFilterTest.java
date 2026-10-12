@@ -17,6 +17,7 @@ import com.portfinder.domain.Platform;
 import com.portfinder.domain.Project;
 import com.portfinder.domain.ProjectId;
 import com.portfinder.domain.ProjectStatus;
+import com.portfinder.domain.PublicationStatus;
 
 class ProjectFilterTest {
 
@@ -41,27 +42,36 @@ class ProjectFilterTest {
 
 	@Test
 	void filtersByOriginalPlatform() {
-		var criteria = new CatalogSearchCriteria(null, "n64", null, null, null, CatalogSort.UPDATED_DESC);
+		var criteria = new CatalogSearchCriteria(null, "n64", null, null, null, null, CatalogSort.UPDATED_DESC, 0, 20);
+		assertTrue(filter.matches(zelda, criteria));
+	}
+
+	@Test
+	void filtersByCategory() {
+		var criteria = new CatalogSearchCriteria(null, null, null, null, null, "n64", CatalogSort.UPDATED_DESC, 0, 20);
 		assertTrue(filter.matches(zelda, criteria));
 	}
 
 	@Test
 	void filtersByTargetPlatform() {
-		var criteria = new CatalogSearchCriteria(null, null, "dreamcast", null, null, CatalogSort.UPDATED_DESC);
+		var criteria = new CatalogSearchCriteria(null, null, "dreamcast", null, null, null, CatalogSort.UPDATED_DESC, 0,
+				20);
 		assertFalse(filter.matches(zelda, criteria));
 		assertTrue(filter.matches(mario, criteria));
 	}
 
 	@Test
 	void filtersByStatus() {
-		var criteria = new CatalogSearchCriteria(null, null, null, ProjectStatus.WIP, null, CatalogSort.UPDATED_DESC);
+		var criteria = new CatalogSearchCriteria(null, null, null, ProjectStatus.WIP, null, null,
+				CatalogSort.UPDATED_DESC, 0, 20);
 		assertFalse(filter.matches(zelda, criteria));
 		assertTrue(filter.matches(mario, criteria));
 	}
 
 	@Test
 	void filtersByTag() {
-		var criteria = new CatalogSearchCriteria(null, null, null, null, "recomp", CatalogSort.UPDATED_DESC);
+		var criteria = new CatalogSearchCriteria(null, null, null, null, "recomp", null, CatalogSort.UPDATED_DESC, 0,
+				20);
 		assertTrue(filter.matches(zelda, criteria));
 		assertFalse(filter.matches(mario, criteria));
 	}
@@ -76,14 +86,14 @@ class ProjectFilterTest {
 
 	@Test
 	void combinedFiltersRequireAllConditions() {
-		var criteria = new CatalogSearchCriteria("port", "N64", "PC", ProjectStatus.WIP, "port",
-				CatalogSort.UPDATED_DESC);
+		var criteria = new CatalogSearchCriteria("port", "N64", "PC", ProjectStatus.WIP, "port", null,
+				CatalogSort.UPDATED_DESC, 0, 20);
 		assertTrue(filter.matches(mario, criteria));
 		assertFalse(filter.matches(zelda, criteria));
 	}
 
 	private static CatalogSearchCriteria criteriaQuery(String q) {
-		return new CatalogSearchCriteria(q, null, null, null, null, CatalogSort.UPDATED_DESC);
+		return new CatalogSearchCriteria(q, null, null, null, null, null, CatalogSort.UPDATED_DESC, 0, 20);
 	}
 
 	private static Project project(String id, String name, String summary, String original, List<String> targets,
@@ -92,12 +102,21 @@ class ProjectFilterTest {
 				ProjectId.of(id),
 				name,
 				summary,
+				summary,
 				Platform.of(original),
 				targets.stream().map(Platform::of).toList(),
 				status,
+				null,
 				Optional.of(URI.create("https://example.com/" + id)),
 				Optional.empty(),
+				Optional.empty(),
+				List.of(),
 				tags,
-				updatedAt);
+				updatedAt,
+				false,
+				Optional.empty(),
+				PublicationStatus.PUBLISHED,
+				0,
+				Optional.empty());
 	}
 }

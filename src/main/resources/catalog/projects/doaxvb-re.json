@@ -1,12 +1,23 @@
 {
-  "id": "doaxvb-re",
-  "name": "DOAX Beach Volleyball Recomp",
-  "summary": "Native Windows port of Dead or Alive Xtreme Beach Volleyball (Xbox) built by static recompilation. Requires your own copy.",
-  "originalPlatform": "Xbox",
-  "targetPlatforms": ["PC"],
-  "status": "WIP",
-  "repoUrl": "https://github.com/NoRain211/doaxvb-re",
-  "homepageUrl": "https://github.com/NoRain211/doaxvb-re/releases/latest",
-  "tags": ["recomp", "xbox", "sports"],
-  "updatedAt": "2026-10-12"
+    "id":  "doaxvb-re",
+    "name":  "DOAX Beach Volleyball Recomp",
+    "summary":  "Native Windows port of Dead or Alive Xtreme Beach Volleyball (Xbox) built by static recompilation. Requires your own copy.",
+    "description":  "Native Windows port of Dead or Alive Xtreme Beach Volleyball (Xbox) built by static recompilation. Requires your own copy.",
+    "originalPlatform":  "Xbox",
+    "targetPlatforms":  [
+                            "PC"
+                        ],
+    "category":  "xbox",
+    "status":  "WIP",
+    "repoUrl":  "https://github.com/NoRain211/doaxvb-re",
+    "homepageUrl":  "https://github.com/NoRain211/doaxvb-re/releases/latest",
+    "imageUrl":  "https://socialify.git.ci/NoRain211/doaxvb-re/image?description=1\u0026font=Source%20Code%20Pro\u0026language=1\u0026name=1\u0026owner=1\u0026pattern=Solid\u0026theme=Dark",
+    "screenshotUrls": [],
+    "tags":  [
+                 "recomp",
+                 "xbox",
+                 "sports"
+             ],
+    "featured":  false,
+    "updatedAt":  "2026-10-12"
 }

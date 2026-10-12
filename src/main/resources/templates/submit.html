@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(~{::title}, ~{::main})}">
+<head>
+  <title>submit — portfinder</title>
+</head>
+<body>
+<main class="shell">
+  <section class="hero">
+    <h1>Submit a project</h1>
+    <p class="lede">Propose a decomp or recomp port. Submissions stay pending until a moderator publishes them.</p>
+    <p class="banner success" th:if="${param.ok != null}">Thanks — your project was submitted for review.</p>
+    <p class="banner" th:if="${error != null}" th:text="${error}">error</p>
+  </section>
+
+  <form class="submit-form" method="post" th:action="@{/submit}">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+    <label class="field">
+      <span>id (kebab-case)</span>
+      <input name="id" required maxlength="64" placeholder="example-recomp">
+    </label>
+    <label class="field">
+      <span>name</span>
+      <input name="name" required maxlength="200">
+    </label>
+    <label class="field grow">
+      <span>summary</span>
+      <input name="summary" required maxlength="500">
+    </label>
+    <label class="field grow">
+      <span>description</span>
+      <textarea name="description" rows="5" placeholder="Longer detail (optional)"></textarea>
+    </label>
+    <label class="field">
+      <span>original platform</span>
+      <input name="originalPlatform" required placeholder="N64">
+    </label>
+    <label class="field">
+      <span>target platforms</span>
+      <input name="targetPlatforms" required placeholder="PC, Linux">
+    </label>
+    <label class="field">
+      <span>category</span>
+      <select name="category" required>
+        <option th:each="c : ${categories}" th:value="${c.slug()}" th:text="${c.label()}">N64</option>
+      </select>
+    </label>
+    <label class="field">
+      <span>status</span>
+      <select name="status" required>
+        <option th:each="s : ${statuses}" th:value="${s}" th:text="${s}">ACTIVE</option>
+      </select>
+    </label>
+    <label class="field grow">
+      <span>repository URL</span>
+      <input name="repoUrl" type="url" required placeholder="https://github.com/org/repo">
+    </label>
+    <label class="field grow">
+      <span>homepage URL</span>
+      <input name="homepageUrl" type="url" placeholder="optional">
+    </label>
+    <label class="field grow">
+      <span>image URL</span>
+      <input name="imageUrl" type="url" placeholder="optional preview image">
+    </label>
+    <label class="field grow">
+      <span>tags</span>
+      <input name="tags" placeholder="recomp, n64">
+    </label>
+    <label class="check">
+      <input type="checkbox" name="policyAccepted" value="true" required>
+      <span>I am not linking ROMs, ISOs, or copyrighted game assets.</span>
+    </label>
+    <button type="submit" class="btn">submit for review</button>
+  </form>
+</main>
+</body>
+</html>

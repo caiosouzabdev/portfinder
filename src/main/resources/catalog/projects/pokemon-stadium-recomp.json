@@ -1,12 +1,23 @@
 {
-  "id": "pokemon-stadium-recomp",
-  "name": "Pokémon Stadium Recomp",
-  "summary": "Pokémon Stadium (US v1.0) statically recompiled with an N64Recomp fork. Repo is archived; last Windows beta release still available.",
-  "originalPlatform": "N64",
-  "targetPlatforms": ["PC"],
-  "status": "ARCHIVED",
-  "repoUrl": "https://github.com/mstan/PokemonStadiumRecomp",
-  "homepageUrl": "https://github.com/mstan/PokemonStadiumRecomp/releases",
-  "tags": ["recomp", "pokemon", "n64"],
-  "updatedAt": "2026-08-15"
+    "id":  "pokemon-stadium-recomp",
+    "name":  "PokÃƒÂ©mon Stadium Recomp",
+    "summary":  "PokÃƒÂ©mon Stadium (US v1.0) statically recompiled with an N64Recomp fork. Repo is archived; last Windows beta release still available.",
+    "description":  "PokÃƒÂ©mon Stadium (US v1.0) statically recompiled with an N64Recomp fork. Repo is archived; last Windows beta release still available.",
+    "originalPlatform":  "N64",
+    "targetPlatforms":  [
+                            "PC"
+                        ],
+    "category":  "n64",
+    "status":  "ARCHIVED",
+    "repoUrl":  "https://github.com/mstan/PokemonStadiumRecomp",
+    "homepageUrl":  "https://github.com/mstan/PokemonStadiumRecomp/releases",
+    "imageUrl":  "https://socialify.git.ci/mstan/PokemonStadiumRecomp/image?description=1\u0026font=Source%20Code%20Pro\u0026language=1\u0026name=1\u0026owner=1\u0026pattern=Solid\u0026theme=Dark",
+    "screenshotUrls": [],
+    "tags":  [
+                 "recomp",
+                 "pokemon",
+                 "n64"
+             ],
+    "featured":  false,
+    "updatedAt":  "2026-08-15"
 }

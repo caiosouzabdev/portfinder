@@ -1,12 +1,22 @@
 {
-  "id": "beta-port",
-  "name": "Beta Port",
-  "summary": "Fixture project B",
-  "originalPlatform": "PS1",
-  "targetPlatforms": ["PC"],
-  "status": "WIP",
-  "repoUrl": "https://example.com/beta",
-  "homepageUrl": "https://example.com",
-  "tags": ["fixture", "ps1"],
-  "updatedAt": "2026-02-01"
+    "id":  "beta-port",
+    "name":  "Beta Port",
+    "summary":  "Fixture project B",
+    "description":  "Fixture project B",
+    "originalPlatform":  "PS1",
+    "targetPlatforms":  [
+                            "PC"
+                        ],
+    "category":  "n64",
+    "status":  "WIP",
+    "repoUrl":  "https://example.com/beta",
+    "homepageUrl":  "https://example.com",
+    "imageUrl":  "",
+    "screenshotUrls": [],
+    "tags":  [
+                 "fixture",
+                 "ps1"
+             ],
+    "featured":  false,
+    "updatedAt":  "2026-02-01"
 }

@@ -10,7 +10,8 @@ public class ContributeController {
 
 	private final String githubRepoUrl;
 
-	public ContributeController(@Value("${portfinder.github.repo-url}") String githubRepoUrl) {
+	public ContributeController(
+			@Value("${portfinder.github.repo-url:https://github.com/caiosouzabdev/portfinder}") String githubRepoUrl) {
 		this.githubRepoUrl = githubRepoUrl;
 	}
 
