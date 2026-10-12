@@ -17,5 +17,15 @@ services:
         fromDatabase:
           name: portfinder-db
           property: connectionString
+      - key: DATABASE_USERNAME
+        fromDatabase:
+          name: portfinder-db
+          property: user
+      - key: DATABASE_PASSWORD
+        fromDatabase:
+          name: portfinder-db
+          property: password
+      - key: DATABASE_DRIVER
+        value: org.postgresql.Driver
       - key: PORTFINDER_OAUTH_ENABLED
         value: "false"

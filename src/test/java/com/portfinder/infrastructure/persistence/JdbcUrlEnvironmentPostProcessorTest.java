@@ -20,12 +20,26 @@ class JdbcUrlEnvironmentPostProcessorTest {
 
 		new JdbcUrlEnvironmentPostProcessor().postProcessEnvironment(environment, new SpringApplication());
 
+		assertThat(environment.getProperty("DATABASE_URL"))
+				.isEqualTo("jdbc:postgresql://dpg-xyz.render.com:5432/portfinder?sslmode=require");
 		assertThat(environment.getProperty("spring.datasource.url"))
 				.isEqualTo("jdbc:postgresql://dpg-xyz.render.com:5432/portfinder?sslmode=require");
 		assertThat(environment.getProperty("spring.datasource.username")).isEqualTo("portfinder");
 		assertThat(environment.getProperty("spring.datasource.password")).isEqualTo("s3cret");
 		assertThat(environment.getProperty("spring.datasource.driver-class-name"))
 				.isEqualTo("org.postgresql.Driver");
+		assertThat(environment.getProperty("DATABASE_DRIVER")).isEqualTo("org.postgresql.Driver");
+	}
+
+	@Test
+	void convertsInternalHostWithoutPort() throws Exception {
+		Map<String, Object> props = JdbcUrlEnvironmentPostProcessor.normalize(
+				"postgresql://portfinder:secret@dpg-abc-a/portfinder");
+
+		assertThat(props.get("spring.datasource.url"))
+				.isEqualTo("jdbc:postgresql://dpg-abc-a:5432/portfinder?sslmode=require");
+		assertThat(props.get("DATABASE_URL"))
+				.isEqualTo("jdbc:postgresql://dpg-abc-a:5432/portfinder?sslmode=require");
 	}
 
 	@Test
