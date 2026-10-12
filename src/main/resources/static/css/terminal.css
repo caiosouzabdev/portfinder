@@ -710,34 +710,6 @@ a:hover { text-decoration: underline; }
   background: var(--panel);
 }
 
-.steps {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 1rem;
-}
-
-.steps > li {
-  padding: 1.1rem 1.2rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--panel);
-}
-
-.steps h2 {
-  margin: 0 0 0.5rem;
-  font-size: 1.05rem;
-  font-family: var(--font-mono);
-  color: var(--green);
-}
-
-.rules {
-  margin: 0.5rem 0 1rem;
-  padding-left: 1.1rem;
-  color: var(--muted);
-}
-
 code {
   font-family: var(--font-mono);
   font-size: 0.85em;

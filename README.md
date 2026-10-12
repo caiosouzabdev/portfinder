@@ -74,13 +74,11 @@ Admin emails listed in `PORTFINDER_ADMIN_EMAILS` can open `/moderation` to appro
 
 See [docs/CATEGORY_TAXONOMY.md](docs/CATEGORY_TAXONOMY.md).
 
-## Contribute
+## Submit a project
 
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+The git repository is private. Catalog suggestions from the community go through **in-app Submit** after sign-in (OAuth enabled). Moderators publish approved entries from `/moderation`.
 
-- Primary: in-app **Submit** (when auth is enabled)
-- Suggest: GitHub Issue template
-- Seed data: PR JSON under `src/main/resources/catalog/projects/`
+Maintainers: see [CONTRIBUTING.md](CONTRIBUTING.md) for seed JSON format.
 
 ## License
 

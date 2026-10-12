@@ -33,7 +33,6 @@ public class SitemapController {
 		xml.append("<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n");
 		url(xml, "/", "1.0");
 		url(xml, "/categories", "0.8");
-		url(xml, "/contribute", "0.5");
 		url(xml, "/submit", "0.5");
 		for (var category : CategoryCatalog.all()) {
 			url(xml, "/categories/" + category.slug(), "0.7");

@@ -21,8 +21,6 @@ spring:
 portfinder:
   catalog:
     location-pattern: classpath:catalog/projects/*.json
-  github:
-    repo-url: https://github.com/caiosouzabdev/portfinder
   security:
     oauth-enabled: false
   moderation:

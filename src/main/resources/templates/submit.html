@@ -8,7 +8,7 @@
 <main class="shell">
   <section class="hero">
     <h1>Submit a project</h1>
-    <p class="lede">Propose a decomp or recomp port. Submissions stay pending until a moderator publishes them.</p>
+    <p class="lede">Signed-in users can propose a decomp or recomp port. Submissions stay pending until a moderator publishes them.</p>
     <p class="banner success" th:if="${param.ok != null}">Thanks — your project was submitted for review.</p>
     <p class="banner" th:if="${error != null}" th:text="${error}">error</p>
   </section>

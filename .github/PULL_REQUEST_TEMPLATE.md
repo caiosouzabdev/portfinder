@@ -1,7 +1,9 @@
 ## Summary
-Briefly describe the catalog change.
+Briefly describe the change (maintainer seed/catalog or app code).
 
-## Checklist
+Public catalog suggestions use in-app **Submit**, not GitHub PRs.
+
+## Checklist (seed JSON, if applicable)
 - [ ] Added or updated `src/main/resources/catalog/projects/{id}.json`
 - [ ] `id` is unique lowercase kebab-case and matches the filename
 - [ ] JSON is valid and includes required fields (`name`, `summary`, `originalPlatform`, `targetPlatforms`, `category`, `status`, `updatedAt`)

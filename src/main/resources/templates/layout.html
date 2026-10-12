@@ -20,7 +20,6 @@
         <a th:href="@{/}">feed</a>
         <a th:href="@{/categories}">categories</a>
         <a th:href="@{/submit}">submit</a>
-        <a th:href="@{/contribute}">contribute</a>
         <a th:if="${currentUser != null and currentUser.admin}" th:href="@{/moderation}">moderation</a>
       </nav>
     </div>

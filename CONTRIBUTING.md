@@ -1,21 +1,22 @@
 # Contributing to portfinder
 
-portfinder is a **discovery catalog** for decomp and recomp ports. Seed data lives as JSON in git; the running app may also accept in-app submissions for moderator review.
+portfinder is a **discovery catalog** for decomp and recomp ports. The source repository is private. Public contributions go through the **in-app Submit** form after sign-in; moderators publish approved entries.
 
-## Suggest a project
+## Submit a project (public)
 
-Prefer the in-app **Submit** form when the site is running with auth enabled. Otherwise open a GitHub Issue with the **Suggest a project** template.
+1. Sign in on the live site.
+2. Open **submit** in the nav.
+3. Fill the form. Entries stay pending until a moderator publishes them.
 
-## Add or update a catalog entry
+Do not open GitHub issues or PRs for catalog suggestions — submissions are in-app only.
 
-1. Fork the repository.
-2. Add or edit `src/main/resources/catalog/projects/{id}.json`.
-3. Keep the filename identical to the `id` field.
-4. Open a Pull Request using the PR template.
+## Seed catalog (maintainers)
+
+Maintainers may still edit seed JSON under `src/main/resources/catalog/projects/{id}.json` (filename must match `id`).
 
 ### Copy and branding
 
-Do **not** name or compare PortFinder to other product directories in commits, code, comments, docs, issue text, or UI copy. Describe features in PortFinder terms only (ranked feed, upvote, category hub, and so on).
+Do **not** name or compare PortFinder to other product directories in commits, code, comments, docs, or UI copy. Describe features in PortFinder terms only (ranked feed, upvote, category hub, and so on).
 
 ### JSON schema
 

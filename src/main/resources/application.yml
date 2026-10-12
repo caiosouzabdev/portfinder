@@ -36,8 +36,6 @@ server:
 portfinder:
   catalog:
     location-pattern: classpath:catalog/projects/*.json
-  github:
-    repo-url: https://github.com/caiosouzabdev/portfinder
   base-url: ${PORTFINDER_BASE_URL:${RENDER_EXTERNAL_URL:http://localhost:8080}}
   moderation:
     admin-emails: ${PORTFINDER_ADMIN_EMAILS:}
