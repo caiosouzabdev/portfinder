@@ -1,0 +1,12 @@
+{
+  "id": "ruby-sapphire-recomp",
+  "name": "Ruby & Sapphire Recomp",
+  "summary": "Pokémon Ruby and Sapphire statically recompiled with gbarecomp; Windows x64 release zips available.",
+  "originalPlatform": "GBA",
+  "targetPlatforms": ["PC"],
+  "status": "WIP",
+  "repoUrl": "https://github.com/mstan/RubySapphireRecomp",
+  "homepageUrl": "https://github.com/mstan/RubySapphireRecomp/releases",
+  "tags": ["recomp", "pokemon", "gba"],
+  "updatedAt": "2026-09-09"
+}

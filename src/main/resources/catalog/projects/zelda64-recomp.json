@@ -1,0 +1,12 @@
+{
+  "id": "zelda64-recomp",
+  "name": "Zelda 64: Recompiled",
+  "summary": "Static recompilation of The Legend of Zelda: Majora's Mask for PC (Windows/Linux/Mac), with modern enhancements.",
+  "originalPlatform": "N64",
+  "targetPlatforms": ["PC"],
+  "status": "ACTIVE",
+  "repoUrl": "https://github.com/Zelda64Recomp/Zelda64Recomp",
+  "homepageUrl": "https://github.com/Zelda64Recomp/Zelda64Recomp/releases",
+  "tags": ["recomp", "n64", "zelda"],
+  "updatedAt": "2026-09-25"
+}

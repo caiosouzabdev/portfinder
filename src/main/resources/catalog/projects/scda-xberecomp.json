@@ -1,0 +1,12 @@
+{
+  "id": "scda-xberecomp",
+  "name": "Splinter Cell: Double Agent Recomp",
+  "summary": "Unofficial original Xbox PC port of Splinter Cell: Double Agent via static recompilation.",
+  "originalPlatform": "Xbox",
+  "targetPlatforms": ["PC"],
+  "status": "WIP",
+  "repoUrl": "https://github.com/TGP482/SCDA-XBERecomp",
+  "homepageUrl": "https://github.com/TGP482/SCDA-XBERecomp/releases",
+  "tags": ["recomp", "xbox", "stealth"],
+  "updatedAt": "2026-10-12"
+}

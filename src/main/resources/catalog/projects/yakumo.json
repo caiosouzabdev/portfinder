@@ -1,0 +1,12 @@
+{
+  "id": "yakumo",
+  "name": "Yakumo",
+  "summary": "Native HD port of Monster Hunter Portable 3rd via PSP static recompilation (Vulkan/SDL3) for Windows, Linux, macOS, and Android.",
+  "originalPlatform": "PSP",
+  "targetPlatforms": ["PC", "Android"],
+  "status": "WIP",
+  "repoUrl": "https://github.com/TeamGDB/Yakumo",
+  "homepageUrl": "https://teamgdb.github.io/Yakumo/",
+  "tags": ["recomp", "psp", "action"],
+  "updatedAt": "2026-10-12"
+}

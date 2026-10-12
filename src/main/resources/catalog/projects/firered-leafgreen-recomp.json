@@ -1,0 +1,12 @@
+{
+  "id": "firered-leafgreen-recomp",
+  "name": "FireRed & LeafGreen Recomp",
+  "summary": "Pokémon FireRed and LeafGreen statically recompiled with gbarecomp; separate Windows x64 builds published.",
+  "originalPlatform": "GBA",
+  "targetPlatforms": ["PC"],
+  "status": "WIP",
+  "repoUrl": "https://github.com/mstan/FireRedLeafGreenRecomp",
+  "homepageUrl": "https://github.com/mstan/FireRedLeafGreenRecomp/releases",
+  "tags": ["recomp", "pokemon", "gba"],
+  "updatedAt": "2026-09-09"
+}

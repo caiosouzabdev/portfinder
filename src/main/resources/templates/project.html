@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(~{::title}, ~{::main})}">
+<head>
+  <title th:text="|${project.name} — portfinder|">project — portfinder</title>
+</head>
+<body>
+<main class="shell">
+  <p class="prompt"><a th:href="@{/}">← catalog</a></p>
+  <article class="detail">
+    <header class="detail-header">
+      <h1 th:text="${project.name}">Project</h1>
+      <span class="status" th:classappend="| status-${project.status.name().toLowerCase()}|" th:text="${project.status}">ACTIVE</span>
+    </header>
+    <p class="lede" th:text="${project.summary}">Summary</p>
+    <dl class="facts">
+      <div>
+        <dt>id</dt>
+        <dd th:text="${project.id.value()}">slug</dd>
+      </div>
+      <div>
+        <dt>original</dt>
+        <dd th:text="${project.originalPlatform.label()}">N64</dd>
+      </div>
+      <div>
+        <dt>targets</dt>
+        <dd>
+          <span th:each="tp, iter : ${project.targetPlatforms}"
+                th:text="${tp.label()} + (${iter.last} ? '' : ', ')">PC</span>
+        </dd>
+      </div>
+      <div>
+        <dt>updated</dt>
+        <dd th:text="${project.updatedAt}">2026-01-01</dd>
+      </div>
+    </dl>
+    <div class="chips" th:if="${!project.tags.isEmpty()}">
+      <span class="chip tag" th:each="tag : ${project.tags}" th:text="${tag}">tag</span>
+    </div>
+    <div class="actions">
+      <a class="btn" th:if="${project.repoUrl.isPresent()}" th:href="${project.repoUrl.get()}" rel="noopener noreferrer" target="_blank">repository</a>
+      <a class="btn ghost" th:if="${project.homepageUrl.isPresent()}" th:href="${project.homepageUrl.get()}" rel="noopener noreferrer" target="_blank">homepage</a>
+    </div>
+  </article>
+</main>
+</body>
+</html>

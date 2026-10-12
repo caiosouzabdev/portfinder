@@ -1,0 +1,12 @@
+{
+  "id": "gen2recomped",
+  "name": "Gen2Recomped",
+  "summary": "Generation 2 Pokémon native port forked from Gen1Recomp, with published builds for Windows, Linux, macOS, Android, and Switch.",
+  "originalPlatform": "Game Boy Color",
+  "targetPlatforms": ["PC", "Android", "Switch"],
+  "status": "ACTIVE",
+  "repoUrl": "https://github.com/UNDERdecoded/Gen2Recomped",
+  "homepageUrl": "https://github.com/UNDERdecoded/Gen2Recomped/releases",
+  "tags": ["recreation", "pokemon", "love2d", "gbc"],
+  "updatedAt": "2026-10-11"
+}

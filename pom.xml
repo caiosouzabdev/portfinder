@@ -8,10 +8,10 @@
 		<version>4.0.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.decomphub</groupId>
-	<artifactId>decomphub</artifactId>
+	<groupId>com.portfinder</groupId>
+	<artifactId>portfinder</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>decomphub</name>
+	<name>portfinder</name>
 	<description>Hub for game decomp and recompilation ports</description>
 	<url/>
 	<licenses>

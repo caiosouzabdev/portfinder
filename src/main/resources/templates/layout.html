@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(title, content)">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title th:replace="${title}">portfinder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/terminal.css}">
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" th:href="@{/}">portfinder</a>
+    <nav class="nav">
+      <a th:href="@{/}">catalog</a>
+      <a th:href="@{/contribute}">contribute</a>
+    </nav>
+  </header>
+  <main class="shell" th:replace="${content}">
+  </main>
+  <footer class="site-footer">
+    <p>Metadata and links only. Never hosts ROMs or copyrighted game assets.</p>
+  </footer>
+</body>
+</html>

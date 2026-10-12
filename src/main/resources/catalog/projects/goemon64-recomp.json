@@ -1,0 +1,12 @@
+{
+  "id": "goemon64-recomp",
+  "name": "Goemon 64: Recompiled",
+  "summary": "Unofficial PC port of Mystical Ninja Starring Goemon achieved via static recompilation.",
+  "originalPlatform": "N64",
+  "targetPlatforms": ["PC"],
+  "status": "WIP",
+  "repoUrl": "https://github.com/klorfmorf/Goemon64Recomp",
+  "homepageUrl": "https://github.com/klorfmorf/Goemon64Recomp/releases",
+  "tags": ["recomp", "n64", "action"],
+  "updatedAt": "2026-09-19"
+}

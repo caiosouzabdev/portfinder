@@ -1,0 +1,12 @@
+{
+  "id": "speedbreaker",
+  "name": "Speedbreaker",
+  "summary": "Unofficial static recompilation of Need for Speed: Most Wanted (2005, Xbox 360) for Steam Deck, Linux, and Mac. Bring your own disc.",
+  "originalPlatform": "Xbox 360",
+  "targetPlatforms": ["PC", "Linux", "macOS"],
+  "status": "WIP",
+  "repoUrl": "https://github.com/SpeedBreakerProject/speedbreaker",
+  "homepageUrl": "https://projectugarte.com/speedbreaker/",
+  "tags": ["recomp", "xbox360", "racing"],
+  "updatedAt": "2026-10-11"
+}

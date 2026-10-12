@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(~{::title}, ~{::main})}">
+<head>
+  <title>not found — portfinder</title>
+</head>
+<body>
+<main class="shell">
+  <section class="hero">
+    <p class="prompt">error <span th:text="${status}">404</span></p>
+    <h1>signal lost</h1>
+    <p class="lede" th:text="${error} ?: 'The page or project you requested was not found.'">Not found</p>
+    <a class="btn" th:href="@{/}">return to catalog</a>
+  </section>
+</main>
+</body>
+</html>

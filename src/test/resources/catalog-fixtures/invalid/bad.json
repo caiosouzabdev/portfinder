@@ -1,0 +1,12 @@
+{
+  "id": "bad!",
+  "name": "Broken",
+  "summary": "Invalid id on purpose",
+  "originalPlatform": "N64",
+  "targetPlatforms": ["PC"],
+  "status": "ACTIVE",
+  "repoUrl": "https://example.com/bad",
+  "homepageUrl": "",
+  "tags": [],
+  "updatedAt": "2026-01-01"
+}

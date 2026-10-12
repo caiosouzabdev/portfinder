@@ -1,0 +1,12 @@
+{
+  "id": "dup-id",
+  "name": "First",
+  "summary": "Duplicate fixture one",
+  "originalPlatform": "N64",
+  "targetPlatforms": ["PC"],
+  "status": "ACTIVE",
+  "repoUrl": "https://example.com/one",
+  "homepageUrl": "",
+  "tags": [],
+  "updatedAt": "2026-01-01"
+}

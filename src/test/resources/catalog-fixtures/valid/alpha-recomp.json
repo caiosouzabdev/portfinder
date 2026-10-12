@@ -1,0 +1,12 @@
+{
+  "id": "alpha-recomp",
+  "name": "Alpha Recomp",
+  "summary": "Fixture project A",
+  "originalPlatform": "N64",
+  "targetPlatforms": ["PC"],
+  "status": "ACTIVE",
+  "repoUrl": "https://example.com/alpha",
+  "homepageUrl": "",
+  "tags": ["fixture"],
+  "updatedAt": "2026-01-01"
+}

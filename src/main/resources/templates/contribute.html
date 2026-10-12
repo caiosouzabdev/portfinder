@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(~{::title}, ~{::main})}">
+<head>
+  <title>contribute — portfinder</title>
+</head>
+<body>
+<main class="shell">
+  <section class="hero">
+    <h1>contribute</h1>
+    <p class="lede">The catalog is git-backed. Suggest projects with Issues; add or edit entries with Pull Requests.</p>
+  </section>
+
+  <ol class="steps">
+    <li>
+      <h2>1. Suggest via Issue</h2>
+      <p>Open a structured issue if you found a decomp/recomp port that should be listed.</p>
+      <a class="btn" th:href="${suggestIssueUrl}" rel="noopener noreferrer" target="_blank">open suggest-project issue</a>
+    </li>
+    <li>
+      <h2>2. Add via Pull Request</h2>
+      <p>Create <code>src/main/resources/catalog/projects/{id}.json</code> matching the schema in CONTRIBUTING.md, then open a PR.</p>
+      <a class="btn ghost" th:href="${newPrUrl}" rel="noopener noreferrer" target="_blank">open compare / PR</a>
+    </li>
+    <li>
+      <h2>3. Rules</h2>
+      <ul class="rules">
+        <li>Metadata and outbound links only — never ROMs, ISOs, or game assets.</li>
+        <li>Ids are lowercase kebab-case and unique.</li>
+        <li>Prefer official project repositories and homepages.</li>
+      </ul>
+      <p><a th:href="${githubRepoUrl}" rel="noopener noreferrer" target="_blank">github.com/caiosouzabdev/portfinder</a></p>
+    </li>
+  </ol>
+</main>
+</body>
+</html>

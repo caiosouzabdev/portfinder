@@ -1,0 +1,12 @@
+{
+  "id": "pokemon-stadium-recomp",
+  "name": "Pokémon Stadium Recomp",
+  "summary": "Pokémon Stadium (US v1.0) statically recompiled with an N64Recomp fork. Repo is archived; last Windows beta release still available.",
+  "originalPlatform": "N64",
+  "targetPlatforms": ["PC"],
+  "status": "ARCHIVED",
+  "repoUrl": "https://github.com/mstan/PokemonStadiumRecomp",
+  "homepageUrl": "https://github.com/mstan/PokemonStadiumRecomp/releases",
+  "tags": ["recomp", "pokemon", "n64"],
+  "updatedAt": "2026-08-15"
+}

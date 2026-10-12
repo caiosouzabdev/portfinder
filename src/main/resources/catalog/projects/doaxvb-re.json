@@ -1,0 +1,12 @@
+{
+  "id": "doaxvb-re",
+  "name": "DOAX Beach Volleyball Recomp",
+  "summary": "Native Windows port of Dead or Alive Xtreme Beach Volleyball (Xbox) built by static recompilation. Requires your own copy.",
+  "originalPlatform": "Xbox",
+  "targetPlatforms": ["PC"],
+  "status": "WIP",
+  "repoUrl": "https://github.com/NoRain211/doaxvb-re",
+  "homepageUrl": "https://github.com/NoRain211/doaxvb-re/releases/latest",
+  "tags": ["recomp", "xbox", "sports"],
+  "updatedAt": "2026-10-12"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "gen1recomp",
+  "name": "Gen1Recomp",
+  "summary": "Native LÖVE2D recreation of Gen 1–3 Pokémon with frequent multi-platform releases (Windows, Linux, macOS, Android, and more).",
+  "originalPlatform": "Game Boy",
+  "targetPlatforms": ["PC", "Android", "Switch"],
+  "status": "ACTIVE",
+  "repoUrl": "https://github.com/bryanthaboi/gen1recomp",
+  "homepageUrl": "https://github.com/bryanthaboi/gen1recomp/releases",
+  "tags": ["recreation", "pokemon", "love2d", "gb"],
+  "updatedAt": "2026-10-12"
+}

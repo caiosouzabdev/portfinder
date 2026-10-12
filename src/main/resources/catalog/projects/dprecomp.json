@@ -1,0 +1,12 @@
+{
+  "id": "dprecomp",
+  "name": "Deadly Premonition Recomp",
+  "summary": "Native PC port of Deadly Premonition (Xbox 360) by static recompilation, with 60 FPS and modern input options.",
+  "originalPlatform": "Xbox 360",
+  "targetPlatforms": ["PC"],
+  "status": "ACTIVE",
+  "repoUrl": "https://github.com/LittleBitUA/DPRecomp",
+  "homepageUrl": "https://github.com/LittleBitUA/DPRecomp/releases/latest",
+  "tags": ["recomp", "xbox360", "adventure"],
+  "updatedAt": "2026-10-03"
+}

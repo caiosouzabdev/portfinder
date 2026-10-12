@@ -1,0 +1,12 @@
+{
+  "id": "emerald-recomp",
+  "name": "Pokémon Emerald Recomp",
+  "summary": "Pokémon Emerald statically recompiled for GBA→PC using gbarecomp (R.A.I.D.), with Windows and Linux release builds.",
+  "originalPlatform": "GBA",
+  "targetPlatforms": ["PC"],
+  "status": "WIP",
+  "repoUrl": "https://github.com/mstan/EmeraldRecomp",
+  "homepageUrl": "https://github.com/mstan/EmeraldRecomp/releases",
+  "tags": ["recomp", "pokemon", "gba"],
+  "updatedAt": "2026-09-27"
+}

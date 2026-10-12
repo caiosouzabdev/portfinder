@@ -1,0 +1,12 @@
+{
+  "id": "2ship2harkinian",
+  "name": "2 Ship 2 Harkinian",
+  "summary": "PC port of The Legend of Zelda: Majora's Mask based on the matching decompilation, sibling project to Ship of Harkinian.",
+  "originalPlatform": "N64",
+  "targetPlatforms": ["PC"],
+  "status": "ACTIVE",
+  "repoUrl": "https://github.com/2ship2harkinian/2ship2harkinian",
+  "homepageUrl": "https://github.com/2ship2harkinian/2ship2harkinian/releases",
+  "tags": ["decomp", "port", "n64", "zelda"],
+  "updatedAt": "2026-10-10"
+}

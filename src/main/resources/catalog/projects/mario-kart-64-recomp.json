@@ -1,0 +1,12 @@
+{
+  "id": "mario-kart-64-recomp",
+  "name": "Mario Kart 64: Recompiled",
+  "summary": "Unofficial PC port of Mario Kart 64 via static recompilation for Windows, Linux, and macOS.",
+  "originalPlatform": "N64",
+  "targetPlatforms": ["PC"],
+  "status": "WIP",
+  "repoUrl": "https://github.com/sonicdcer/MarioKart64Recomp",
+  "homepageUrl": "https://github.com/sonicdcer/MarioKart64Recomp/releases",
+  "tags": ["recomp", "n64", "racing"],
+  "updatedAt": "2026-08-11"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "downpour-recomp",
+  "name": "Silent Hill: Downpour Recomp",
+  "summary": "Native Windows PC port of Silent Hill: Downpour via static recompilation of the Xbox 360 binary, with stable releases.",
+  "originalPlatform": "Xbox 360",
+  "targetPlatforms": ["PC"],
+  "status": "ACTIVE",
+  "repoUrl": "https://github.com/LittleBitUA/DownpourRecomp",
+  "homepageUrl": "https://github.com/LittleBitUA/DownpourRecomp/releases",
+  "tags": ["recomp", "xbox360", "horror"],
+  "updatedAt": "2026-09-02"
+}

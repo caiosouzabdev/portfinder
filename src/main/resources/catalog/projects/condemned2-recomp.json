@@ -1,0 +1,12 @@
+{
+  "id": "condemned2-recomp",
+  "name": "Condemned 2: Recompiled",
+  "summary": "Static recompilation of Condemned 2: Bloodshot using RexGlue, with published builds.",
+  "originalPlatform": "Xbox 360",
+  "targetPlatforms": ["PC"],
+  "status": "WIP",
+  "repoUrl": "https://github.com/psxrestore/Condemned2Recomp",
+  "homepageUrl": "https://github.com/psxrestore/Condemned2Recomp/releases",
+  "tags": ["recomp", "xbox360", "horror"],
+  "updatedAt": "2026-10-12"
+}
