@@ -27,4 +27,6 @@ services:
           property: password
       - key: DATABASE_DRIVER
         value: org.postgresql.Driver
+      - key: PORTFINDER_OAUTH_ENABLED
+        value: "true"
       - fromGroup: Google OAuth 2.0
